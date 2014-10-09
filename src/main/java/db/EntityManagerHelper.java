@@ -1,4 +1,4 @@
-package utn.dds.persistencia.futbol.db;
+package db;
 
 import java.util.function.*;
 
