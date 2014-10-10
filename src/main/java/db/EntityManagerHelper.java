@@ -71,6 +71,10 @@ public class EntityManagerHelper {
     public static Query createQuery(String query) {
     	return getEntityManager().createQuery(query);
     }
+    
+    public static void persist(Object o){
+       entityManager().persist(o);
+    }
 
 	public static void withTransaction(Runnable action) {
 		withTransaction(() -> {
