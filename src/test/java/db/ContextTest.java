@@ -1,18 +1,12 @@
 package db;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-public class ContextTest {
+public class ContextTest extends AbstractPersistenceTest {
 
-	@Test
-	public void contextUp() {
-		EntityManagerHelper.getEntityManager();
-	}
+   @Test
+   public void contextUp() {
+      entityManager();
+   }
 
-	@Test
-	public void contextUpWithTransaction() throws Exception {
-		EntityManagerHelper.withTransaction(() -> {});
-	}
 }
