@@ -15,7 +15,6 @@ import javax.persistence.Table;
 public class Cursada extends PersistentEntity {
 
 	@ManyToOne
-	@JoinColumn(name = "cursada_id")
 	private Materia materia;
 
 	@OneToMany

@@ -1,8 +1,11 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("O")
 public class MateriaObligatoria extends Materia {
 
 	private Boolean homogenea;

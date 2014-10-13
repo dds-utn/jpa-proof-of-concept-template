@@ -4,6 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("E")
 public class MateriaElectiva extends Materia {
 	
 	private int creditos;

@@ -1,5 +1,7 @@
 package db;
 
+import static db.EntityManagerHelper.*;
+
 import java.util.List;
 
 import model.Alumno;
@@ -9,9 +11,9 @@ import model.MateriaElectiva;
 import model.MateriaObligatoria;
 import model.Nota;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-
-import static db.EntityManagerHelper.*;
 
 public class ContextTest {
 
@@ -24,6 +26,16 @@ public class ContextTest {
 	public void contextUpWithTransaction() throws Exception {
 		EntityManagerHelper.withTransaction(() -> {});
 	}
+	
+	@Before
+   public void begin() throws Exception {
+      beginTransaction();
+   }
+	
+	@After
+   public void tearDown() throws Exception {
+      rollback();
+   }
 	
 
 	   @Test

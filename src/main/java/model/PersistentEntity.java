@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class PersistentEntity {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue
 	private Long id;
 
 	public Long getId() {

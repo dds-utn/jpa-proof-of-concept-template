@@ -9,9 +9,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="materias")
-@Inheritance(strategy=TABLE_PER_CLASS)
-@DiscriminatorColumn(name= "foo")
+@Table(name = "materias")
+@Inheritance(strategy = SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
 public abstract class Materia extends PersistentEntity {
 
 	@Column(nullable=false)
