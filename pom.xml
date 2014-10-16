@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>utn.dds.persistencia</groupId>
-  <artifactId>futbol</artifactId>
+  <artifactId>localizacion</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>futbol</name>
+  <name>localizacion</name>
   <url>http://maven.apache.org</url>
 
   <properties>
