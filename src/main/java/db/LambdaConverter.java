@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -21,9 +22,11 @@ import javax.persistence.Converter;
  *    public Long id;
  * 
  *    &#064;Convert(converter = LambdaConverter.class)
- *    public Runnable r;
+ *    public SerializableRunnable r;
  * }
  * </pre>
+ * 
+ * Where SampleRunnable is a {@link FunctionalInterface} that implements {@link Serializable}
  * 
  * 
  * @author flbulgarelli
@@ -35,19 +38,18 @@ public class LambdaConverter implements AttributeConverter<Object, byte[]> {
    public byte[] convertToDatabaseColumn(Object lambda) {
       ByteArrayOutputStream out = new ByteArrayOutputStream();
       try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(out)) {
-         objectOutputStream.writeObject(lambda.getClass());
+         objectOutputStream.writeObject(lambda);
          return out.toByteArray();
       } catch (IOException e) {
          throw new RuntimeException(e);
       }
    }
 
-   @SuppressWarnings("unchecked")
    @Override
    public Object convertToEntityAttribute(byte[] lambdaClassBytes) {
       ByteArrayInputStream in = new ByteArrayInputStream(lambdaClassBytes);
       try (ObjectInputStream objectInputStream = new ObjectInputStream(in)) {
-         return ((Class<Object>) objectInputStream.readObject()).newInstance();
+         return objectInputStream.readObject();
       } catch (Exception e) {
          throw new RuntimeException(e);
       }
