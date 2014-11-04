@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class Vehiculo {
 
 	private int velocidadMaxima;
 
-	@Transient
+	@Embedded
 	private Posicion posicion;
 
 	public String getPatente() {
