@@ -8,7 +8,12 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
     	
-    	
+    	<class>model.Importada</class>
+    	<class>model.Prenda</class>
+    	<class>model.Marca</class>
+    	<class>model.Pollera</class>
+    	<class>model.Nacional</class>
+    	<class>model.Pantalon</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
