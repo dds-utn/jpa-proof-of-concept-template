@@ -1,0 +1,19 @@
+body {
+  margin: 5vh 30vw;
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+ font-weight: 300;
+}
+
+h2 {
+ font-weight: 300;
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+}

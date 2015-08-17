@@ -1,18 +1,21 @@
 package db;
 
-import static org.junit.Assert.*;
+import io.github.flbulgarelli.jpa.extras.test.SimplePersistenceTest;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.math.BigDecimal;
 
-public class ContextTest {
+public class ContextTest implements SimplePersistenceTest {
 
-	@Test
-	public void contextUp() {
-		EntityManagerHelper.getEntityManager();
-	}
+  @Test
+  void contextUp() {
 
-	@Test
-	public void contextUpWithTransaction() throws Exception {
-		EntityManagerHelper.withTransaction(() -> {});
-	}
+    Consultora mstislav = new Consultora("Mstislav", 20);
+    mstislav.asignar(new Proyecto("PGM", BigDecimal.valueOf(30_0000)));
+
+    persist(mstislav);
+
+  }
+
+
 }
