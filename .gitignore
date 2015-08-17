@@ -2,3 +2,5 @@
 .classpath
 .settings
 target
+.idea
+app-db*

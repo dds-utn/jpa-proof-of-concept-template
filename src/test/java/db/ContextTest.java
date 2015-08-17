@@ -1,18 +1,15 @@
 package db;
 
-import static org.junit.Assert.*;
+import io.github.flbulgarelli.jpa.extras.test.SimplePersistenceTest;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+public class ContextTest implements SimplePersistenceTest {
 
-public class ContextTest {
+  @Test
+  void contextUp() {
+    withTransaction(() -> {
+    });
+  }
 
-	@Test
-	public void contextUp() {
-		EntityManagerHelper.getEntityManager();
-	}
 
-	@Test
-	public void contextUpWithTransaction() throws Exception {
-		EntityManagerHelper.withTransaction(() -> {});
-	}
 }
