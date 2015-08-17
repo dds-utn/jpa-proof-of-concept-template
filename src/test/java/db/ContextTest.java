@@ -18,7 +18,7 @@ public class ContextTest extends AbstractPersistenceTest implements
   public void contextUp() {
     Consultora mstislav = new Consultora("Mstislav", 20);
     mstislav.asignar(new Proyecto("PGM", BigDecimal.valueOf(30_0000)));
-
+ 
     persist(mstislav);
 
   }

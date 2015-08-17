@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -10,43 +11,45 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Consultoras")
+@Table(name = "Consultoras")
 public class Consultora {
 
-	@Id
-	private int id;
-	
-	private String nombre;
-	private int cantidadDeEmpleados;
+  @Id
+  private int id;
 
-	@OneToMany
-	@JoinColumn(name = "consultora_id")
-	private Collection<Proyecto> proyectos;
+  private String nombre;
 
-	public Consultora(String nombre, int cantidadDeEmpleados) {
-		this.nombre = nombre;
-		this.cantidadDeEmpleados = cantidadDeEmpleados;
-		this.proyectos = new ArrayList<>();
-	}
-	
-	public void asignar(Proyecto proyecto) {
-		proyectos.add(proyecto);
-	}
+  @Column(name="cantidad_empleados")
+  private int cantidadEmpleados;
 
-	public int getCantidadDeEmpleados() {
-		return cantidadDeEmpleados;
-	}
+  @OneToMany(mappedBy = "consultoraEncargada")
+  private Collection<Proyecto> proyectos;
 
-	public String getNombre() {
-		return nombre;
-	}
+  public Consultora(String nombre, int cantidadDeEmpleados) {
+    this.nombre = nombre;
+    this.cantidadEmpleados = cantidadDeEmpleados;
+    this.proyectos = new ArrayList<>();
+  }
 
-	public Collection<Proyecto> getProyectos() {
-		return proyectos;
-	}
-	
-	public int getId() {
-		return id;
-	}
+  public void asignar(Proyecto proyecto) {
+    proyectos.add(proyecto);
+    proyecto.asignarA(this);
+  }
+
+  public int getCantidadEmpleados() {
+    return cantidadEmpleados;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public Collection<Proyecto> getProyectos() {
+    return proyectos;
+  }
+
+  public int getId() {
+    return id;
+  }
 
 }
