@@ -18,23 +18,10 @@
 
     <!-- JPA Persistence Dependencies -->
     <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>4.2.6.Final</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.0-api</artifactId>
-      <version>1.0.1.Final</version>
-      <scope>compile</scope>
-    </dependency>    
-
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>4.2.6.Final</version>
-    </dependency>
+      <groupId>org.uqbar-project</groupId>
+	  <artifactId>jpa-java8-extras</artifactId>
+	  <version>1.0-alpha-1</version>
+	</dependency>
     
     <!-- driver jdbc -->
     <dependency>
@@ -58,18 +45,7 @@
       <artifactId>hsqldb</artifactId>
       <version>2.2.8</version>
     </dependency>
-
   </dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.javassist</groupId>
-				<artifactId>javassist</artifactId>
-				<version>3.18.1-GA</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
   <build>
     <plugins>
         <plugin>
