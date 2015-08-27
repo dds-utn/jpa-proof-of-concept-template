@@ -5,8 +5,8 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,15 +15,19 @@ import javax.persistence.Table;
 public class Consultora {
 
   @Id
-  private int id;
+  @GeneratedValue
+  private long id;
 
   private String nombre;
 
-  @Column(name="cantidad_empleados")
+  @Column(name = "cantidad_empleados")
   private int cantidadEmpleados;
 
   @OneToMany(mappedBy = "consultoraEncargada")
   private Collection<Proyecto> proyectos;
+
+  protected Consultora() {
+  }
 
   public Consultora(String nombre, int cantidadDeEmpleados) {
     this.nombre = nombre;
@@ -46,10 +50,6 @@ public class Consultora {
 
   public Collection<Proyecto> getProyectos() {
     return proyectos;
-  }
-
-  public int getId() {
-    return id;
   }
 
 }

@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Administración de Proyectos</title>
+	</head>	
+	<body>
+		<h1>¡Bienvenido!</h1>
+		<div>
+		  Cantidad De Consultoras: {{cantidadConsultoras}}
+		</div>
+		<div>
+			<ul>
+				{{#consultoras}}
+					<li>{{nombre}}: {{cantidadEmpleados}}</li>
+				{{/consultoras}}
+			</ul>
+			
+		</div>
+	</body>
+</html>
