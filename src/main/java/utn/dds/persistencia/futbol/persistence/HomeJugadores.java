@@ -1,28 +1,26 @@
-package utn.dds.persistencia.futbol;
+package utn.dds.persistencia.futbol.persistence;
 
-import static utn.dds.persistencia.futbol.db.EntityManagerHelper.getEntityManager;
 
 import java.util.List;
 
-import utn.dds.persistencia.futbol.db.EntityManagerHelper;
-import utn.dds.persistencia.futbol.persistence.Jugador;
+import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 
-public class HomeJugadores {
+public class HomeJugadores implements WithGlobalEntityManager {
 
 	public void registrar(Jugador jugador) {
-		getEntityManager().persist(jugador);
+		entityManager().persist(jugador);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Jugador> todos() {
-		return getEntityManager()
+		return entityManager()
 				.createQuery("from Jugador")
 				.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Jugador> filtrarPorNombre(String nombre) {
-		return getEntityManager()
+		return entityManager()
 				.createQuery("from Jugador where nombre = :nombre")
 				.setParameter("nombre", nombre)
 				.getResultList();
