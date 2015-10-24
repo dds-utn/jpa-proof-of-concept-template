@@ -20,7 +20,6 @@ public class ContextTest extends AbstractPersistenceTest implements
     mstislav.asignar(new Proyecto("PGM", BigDecimal.valueOf(30_0000)));
  
     persist(mstislav);
-
   }
 
 }

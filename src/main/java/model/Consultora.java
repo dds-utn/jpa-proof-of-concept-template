@@ -52,4 +52,9 @@ public class Consultora {
     return proyectos;
   }
 
+  public long getId() {
+    return id;
+  }
+
+
 }

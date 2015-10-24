@@ -1,19 +1,45 @@
 <html>
 	<head>
-		<title>Administración de Proyectos</title>
+		<title>Consultoras - Consultorea.me</title>
 	</head>	
 	<body>
-		<h1>¡Bienvenido!</h1>
-		<div>
-		  Cantidad De Consultoras: {{cantidadConsultoras}}
-		</div>
-		<div>
-			<ul>
+	
+<link rel="stylesheet" 
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+	
+	
+		<div class="container">
+		
+			<div class="row">
+				<div class="col-md-11">	
+					
+					
+					
+				<table class="table table-striped" >
+					<hr>
+						<td>Nombre</td>
+						<td>Cantidad de empleados</td>
+					</hr>
 				{{#consultoras}}
-					<li>{{nombre}}: {{cantidadEmpleados}}</li>
-				{{/consultoras}}
-			</ul>
-			
+					<tr>
+						<td>{{nombre}}</td>
+						<td>{{cantidadEmpleados}}</td>
+					</tr>
+				{{/consultoras}}				
+				</table>
+				</div>
+				<div class="col-md-1">
+				adsadadasd
+				</div>
+			</div>
+		
 		</div>
+		
 	</body>
+	
+	
+	
 </html>

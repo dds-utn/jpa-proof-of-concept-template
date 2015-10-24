@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Consultoras - Consultorea.me</title>
+	</head>	
+	<body>
+		<h1>Consultoras</h1>
+		<div>
+			<table class="table">
+				<hr>
+					<td>Nombre</td>
+					<td>Cantidad de empleados</td>
+				</hr>
+			{{#consultoras}}
+				<tr>
+					<td>{{nombre}}</td>
+					<td>{{cantidadEmpleados}}</td>
+				</tr>
+			{{/consultoras}}				
+			</table>
+		</div>
+	</body>
+</html>
