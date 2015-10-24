@@ -1,45 +1,32 @@
-<html>
-	<head>
-		<title>Consultoras - Consultorea.me</title>
-	</head>	
-	<body>
-	
-<link rel="stylesheet" 
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+{{# partial "titulo" }}	
+	<title>Consultoras - Consultorea.me</title>
+{{/partial}}
 		
-		
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
-	
-	
-		<div class="container">
-		
-			<div class="row">
-				<div class="col-md-11">	
-					
-					
-					
-				<table class="table table-striped" >
-					<hr>
-						<td>Nombre</td>
-						<td>Cantidad de empleados</td>
-					</hr>
-				{{#consultoras}}
-					<tr>
-						<td>{{nombre}}</td>
-						<td>{{cantidadEmpleados}}</td>
-					</tr>
-				{{/consultoras}}				
-				</table>
-				</div>
-				<div class="col-md-1">
-				adsadadasd
-				</div>
-			</div>
-		
+{{# partial "contenido" }}	
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-11">	
+			
+		<table class="table table-striped" >
+			<hr>
+				<td>Nombre</td>
+				<td>Cantidad de empleados</td>
+			</hr>
+		{{#consultoras}}
+			<tr>
+				<td>{{nombre}}</td>
+				<td>{{cantidadEmpleados}}</td>
+			</tr>
+		{{/consultoras}}				
+		</table>
 		</div>
-		
-	</body>
-	
-	
-	
-</html>
+		<div class="col-md-1">
+		adsadadasd
+		</div>
+	</div>
+</div>
+
+{{/partial}}
+				
+{{> layout.hbs }}

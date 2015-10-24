@@ -1,21 +1,9 @@
-<html>
-	<head>
-	</head>
-	<body>
-	
-	
-<link rel="stylesheet" 
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+{{# partial "titulo" }}	
+	<title>Consultorea.me</title>
+{{/partial}}
 		
-		
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
-	
-
-		<a href="/">Consultorea.me</a>
-		<a href="/consultoras">Consultoras</a>
-		<a href="/proyectos">Proyectos</a>
-		
-		Bienvenido a Consultorea.me  
-		
-	</body>
-</html>
+{{# partial "contenido" }}	
+	Bienvenido a Consultorea.me  
+{{/partial}}
+				
+{{> layout.hbs }}
