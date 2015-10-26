@@ -1,6 +1,6 @@
 package main;
 
-import static spark.Spark.get;
+import static spark.Spark.*;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -17,6 +17,8 @@ public class Routes {
     HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
 
     port(8080);
+
+    staticFileLocation("/public");
 
     get("/", home::mostrar, engine);
     get("/index.html", (request, response) -> {
