@@ -2,16 +2,19 @@ package controllers;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import model.Consultora;
 import model.RepositorioConsultoras;
+
+import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
+import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-public class ConsultorasController {
+public class ConsultorasController implements WithGlobalEntityManager, TransactionalOps {
 
   public ModelAndView nuevo(Request request, Response response) {
     return new ModelAndView(null, "consultora-nueva.hbs");
@@ -21,7 +24,9 @@ public class ConsultorasController {
     String nombre = request.queryParams("nombre");
     int cantidadEmpleados = Integer.parseInt(request.queryParams("cantidadEmpleados"));
 
-    RepositorioConsultoras.instancia.agregar(new Consultora(nombre, cantidadEmpleados));
+    withTransaction(() -> {
+      RepositorioConsultoras.instancia.agregar(new Consultora(nombre, cantidadEmpleados));
+    });
 
     response.redirect("/consultoras");
     return null;
