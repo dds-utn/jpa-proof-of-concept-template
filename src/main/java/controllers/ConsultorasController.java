@@ -18,8 +18,8 @@ public class ConsultorasController {
   }
 
   public Void crear(Request request, Response response) {
-    String nombre = request.params("nombre");
-    int cantidadEmpleados = Integer.parseInt(request.params("cantidadEmpleados"));
+    String nombre = request.queryParams("nombre");
+    int cantidadEmpleados = Integer.parseInt(request.queryParams("cantidadEmpleados"));
 
     RepositorioConsultoras.instancia.agregar(new Consultora(nombre, cantidadEmpleados));
 
@@ -29,9 +29,8 @@ public class ConsultorasController {
 
   public ModelAndView listar(Request request, Response response) {
     List<Consultora> consultoras;
-    
-    
-    String filtroNombre = request.params("filtroNombre");
+
+    String filtroNombre = request.queryParams("filtroNombre");
     if (Objects.isNull(filtroNombre) || filtroNombre.isEmpty()) {
       consultoras = RepositorioConsultoras.instancia.listar();
     } else {
@@ -41,15 +40,14 @@ public class ConsultorasController {
     HashMap<String, Object> viewModel = new HashMap<>();
     viewModel.put("consultoras", consultoras);
     viewModel.put("filtroNombre", filtroNombre);
-    
-    
+
     return new ModelAndView(viewModel, "consultoras.hbs");
   }
 
   public ModelAndView mostrar(Request request, Response response) {
+    long id = Long.parseLong(request.params(":id"));
 
-    Consultora consultora = RepositorioConsultoras.instancia.buscar(Long.parseLong(request
-        .params("id")));
+    Consultora consultora = RepositorioConsultoras.instancia.buscar(id);
 
     return new ModelAndView(consultora, "consultora.hbs");
   }
