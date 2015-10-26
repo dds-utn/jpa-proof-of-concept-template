@@ -4,32 +4,37 @@
 		
 {{# partial "contenido" }}	
 
-<div class="container">
-	<div class="row">
-		<form action="/consultoras" >
-			<input type="text" name="filtroNombre">
-			<input type="submit">
-		</form>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">	
-		<table class="table table-striped" >
-			<hr>
-				<td>Nombre</td>
-				<td>Cantidad de empleados</td>
-			</hr>
-		{{#consultoras}}
-			<tr>
-				<td>{{nombre}}</td>
-				<td>{{cantidadEmpleados}}</td>
-			</tr>
-		{{/consultoras}}				
-		</table>
+<form action="/consultoras" >
+  <div class="row">
+	  <div class="col-md-10">
+		  <input type="text" class="form-control" name="filtroNombre">
 		</div>
+		<div class="col-md-2">
+		  <input type="submit" class="form-control btn btn-default">
+		</div>
+  </div>
+</form>
+
+<div class="row">
+	<div class="col-md-12">	
+	<table class="table table-striped" >
+			<td>Nombre</td>
+			<td>Cantidad de empleados</td>
+		</hr>
+	{{#consultoras}}
+		<tr>
+			<td>{{nombre}}</td>
+			<td>{{cantidadEmpleados}}</td>
+		</tr>
+	{{/consultoras}}				
+	</table>
 	</div>
 </div>
 
+
+<div class="pull-right">
+  <a class="btn btn-primary"   href="/consultoras/new">Nueva Consultora</a>
+</div>
 {{/partial}}
 				
 {{> layout.hbs }}

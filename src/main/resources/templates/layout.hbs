@@ -6,10 +6,11 @@
   <body>
 
   <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"  href="main.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand"href="/">Consultorea.me</a>
       </div>
@@ -22,8 +23,15 @@
     </div>
   </nav>
 
+  <div class="container">
   {{# block "contenido" }}
   {{/block}}
-
+  </div>
+  
+  <footer class="footer">
+    <p class="text-center">
+      &copy; 2015 Consultoreame.com
+    </p>
+  </footer>
   </body>
 </html>
