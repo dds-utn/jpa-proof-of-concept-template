@@ -13,11 +13,13 @@
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
         
-            <!--property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
+<!--         
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/prueba" /> 
             <property name="hibernate.connection.username" value="root" /> 
-            <property name="hibernate.connection.password" value="mysql" /--> 
-
+            <property name="hibernate.connection.password" value="mysql" /> 
+ -->
+ 
             <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" /> 
             <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db" /> 
             <property name="hibernate.connection.username" value="sa" /> 
