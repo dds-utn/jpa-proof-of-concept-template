@@ -3,9 +3,21 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Asignacion {
 
+	@Id @GeneratedValue
+	private Long id;
+	
+	@Transient
 	private List<String> notas;	
+	
+	@Transient
 	private Tarea tarea;
 	
 	public Asignacion(Tarea tarea) {

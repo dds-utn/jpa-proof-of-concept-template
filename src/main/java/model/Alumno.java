@@ -3,7 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Alumno {
+
+	@Id @GeneratedValue
+	private Long id;
 	
 	private String legajo;
 	private String nombre;
@@ -11,7 +20,12 @@ public class Alumno {
 	private String secretCode;
 	private String email;
 	private String githubUser;
+	
+	@Transient
 	private List<Asignacion> asignaciones = new ArrayList<>();
+	
+	@SuppressWarnings("unused")
+	private Alumno() {}
 	
 	public Alumno(String legajo, String nombre, String email, String githubUser, String apellido, String secretCode) {
 		super();

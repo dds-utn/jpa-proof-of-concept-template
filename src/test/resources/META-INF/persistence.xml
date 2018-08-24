@@ -8,8 +8,11 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
     	
-    	
-    	 
+    	<class>model.Alumno</class>
+    	<class>model.Asignacion</class>
+    	<class>model.Tarea</class>    	
+    	<class>model.Curso</class>
+
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
         
