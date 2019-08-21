@@ -1,6 +1,6 @@
 package model;
 
-import static javax.persistence.InheritanceType.*;
+import static javax.persistence.InheritanceType.SINGLE_TABLE;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
