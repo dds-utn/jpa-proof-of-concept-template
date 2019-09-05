@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
@@ -16,6 +18,7 @@ import canchas.Color;
 import canchas.Jugador;
 import canchas.JugadorAmateur;
 import canchas.JugadorProfesional;
+import canchas.Marca;
 import canchas.Paleta;
 import canchas.RepositorioCancha;
 
@@ -72,14 +75,45 @@ public class ClubTest extends AbstractPersistenceTest implements WithGlobalEntit
     repositorioCancha.registrar(cancha);
     
   }
+  */
   
   @Test
   public void testName2() throws Exception {
-    List<Jugador> jugadores = entityManager().
-      createQuery("from Jugador", Jugador.class).
-      getResultList();
-  }
+	  EntityManager em = entityManager();
+	  /*Color verde = em
+		      .createQuery("from Color where descripcion = 'verde'", Color.class)
+		      .getResultList()
+		      .get(0);
+	  */
+	  Paleta paleta = em
+			  .createQuery("from Paleta where paletaId = 1", Paleta.class)
+			  .getResultList()
+			  .get(0);
+	  withTransaction(() -> {
+		 
+		  paleta.setMarca(new Marca("HEAD", "11873249875"));
+		  
+	  });
+	  
+	  System.out.println("el color es "+paleta.getColor().getClass());
 
-  */  
+	  String hexa = paleta.getColor().getHexa();
+	  System.out.println("el color es "+hexa);
+	  int jeje = 234234;
+	  int jeje2 = jeje+1;
+	  
+	  
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 }

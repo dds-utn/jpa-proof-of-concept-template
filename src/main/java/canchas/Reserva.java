@@ -3,10 +3,17 @@ package canchas;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
+
 public class Reserva {
 
   private Long reservaId;
 
+  @OneToMany(cascade = CascadeType.PERSIST, fetch= FetchType.LAZY)
+  @OrderColumn(name ="ordencito")
   private Collection<Inscripcion> inscripciones;
 
   private LocalDateTime fechaHoraInicio;
