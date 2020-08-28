@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 
-public class HomeJugadores implements WithGlobalEntityManager {
+public class RepositorioJugadores implements WithGlobalEntityManager {
 
 	public void registrar(Jugador jugador) {
 		entityManager().persist(jugador);
