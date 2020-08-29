@@ -1,7 +1,6 @@
 ORM
 ===
 
-> Nota: el código está [acá](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol) y [acá](https://github.com/dds-utn/eg-equipos-futbol-jdbc-java)
 
 # 0. Recuperando lo visto
 
@@ -11,10 +10,14 @@ ORM
 
 ## 1.1 Capa de abstracción
 
+> Nota: el código está [acá](https://github.com/dds-utn/eg-equipos-futbol-jdbc-java)
+
 Veamos un ejemplo de JDBC.
 
+  * ¿Es una biblioteca o un framework?
   * Notemos el concepto de _driver_ (a qué nos suena).
-  * Discutamos la necesidad de configuración
+  * Discutamos la necesidad de configuración.
+  * ¿Es sencillo de programar y entender el código resultante?
 
 
 > Nota técnica: bases servidor vs en memoria vs en archivo
@@ -35,6 +38,7 @@ Veamos un ejemplo de JDBC.
 >  dataSource.setUrl("jdbc:hsqldb:file:sample-db-" + db);
 > ```
 
+Moraleja: trabajar a un bajo nivel de abstracción usando directamente JDBC es tedioso y propenso a error.
 
 ## 1.2 Desadaptación de impedancia
 
@@ -49,6 +53,8 @@ Ehhh... no. No es esto. ¿Cuáles son las diferencias entre estos dos mundos?
 
 
 # 2. Mapeos básicos
+
+> Nota: el código está [acá](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol)
 
 ## 2.1 Primero lo primero: dependencias
 
@@ -80,10 +86,11 @@ Como van a ver, el modelo es bastante de objetos es bastante puro, no tiene abso
 
 ## 2.3 Pero no tan rápido, ¡anoten!
 
-> Su nueva amiga, la [guía de anotaciones](https://docs.google.com/document/d/1jWtehhVCFYECKvpdcCxnEgWZFCv2fR2WPyUJSoiX3II/edit#heading=h.r09lefmcufkn)
+> * Nota 1: Para ver el código **ANTES** de este paso, ver la rama [`futbol-sin-mapeos`](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol-sin-mapeos)
+> * Nota 2: Su nueva amiga, la [guía de anotaciones](https://docs.google.com/document/d/1jWtehhVCFYECKvpdcCxnEgWZFCv2fR2WPyUJSoiX3II/edit#heading=h.r09lefmcufkn)
 
 1. Primero tenemos que decir cuáles clases son persistentes, con `@Entity`
-2. Luego, tenemos que decirle a JPA dónde buscar esas anotaciones:
+2. Luego, tenemos que decirle a JPA dónde buscar esas anotaciones en el `persistence.xml`:
 
 ```xml
 <class>utn.dds.persistencia.futbol.persistence.Jugador</class>
