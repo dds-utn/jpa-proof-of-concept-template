@@ -2,12 +2,23 @@ package utn.dds.persistencia.futbol.persistence;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Partido {
+  
+    @Id @GeneratedValue
+    private Long id;
 
 	private Calendar fecha;
 	private Integer cantidadEspectadores;
 
+	@ManyToOne
 	private Formacion local;
+	@ManyToOne
 	private Formacion visitante;
 
 	public Calendar getFecha() {
@@ -33,5 +44,9 @@ public class Partido {
 			return visitante;
 		}
 	}
+	
+	public Long getId() {
+        return id;
+    }
 
 }

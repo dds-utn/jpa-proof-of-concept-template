@@ -3,27 +3,24 @@ package utn.dds.persistencia.futbol.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Formacion {
-
-	@Id @GeneratedValue
-	private Long id;
-	
+  
+    @Id @GeneratedValue
+    private Long id;
+  
 	private Long goles;
 	
-	@Transient
+	@ManyToOne
 	private Equipo equipo;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST
-			, fetch = FetchType.EAGER)
+	@ManyToMany
 	private List<Jugador> jugadores = new ArrayList<Jugador>();
 
 	public Equipo getEquipo() {
@@ -49,5 +46,9 @@ public class Formacion {
 	public void setGoles(Long goles) {
 		this.goles = goles;
 	}
+	
+	public Long getId() {
+        return id;
+    }
 
 }

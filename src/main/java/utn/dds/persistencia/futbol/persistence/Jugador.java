@@ -6,9 +6,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Jugador {
-	
-	@Id @GeneratedValue
-	private Long id;
+  
+    @Id @GeneratedValue
+    private Long id;
 	
 	private String nombre;
 	private String posicion;
@@ -28,5 +28,9 @@ public class Jugador {
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
+	
+	public Long getId() {
+        return id;
+    }
 
 }
