@@ -1,7 +1,7 @@
 package utn.dds.persistencia.futbol.persistence;
 
 public class Equipo {
-	
+  
 	private String nombre;
 	private Long cantidadAfiliados;
 

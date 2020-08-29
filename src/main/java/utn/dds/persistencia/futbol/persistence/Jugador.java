@@ -1,14 +1,6 @@
 package utn.dds.persistencia.futbol.persistence;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
 public class Jugador {
-	
-	@Id @GeneratedValue
-	private Long id;
 	
 	private String nombre;
 	private String posicion;
