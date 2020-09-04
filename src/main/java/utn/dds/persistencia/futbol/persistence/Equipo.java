@@ -12,6 +12,8 @@ public class Equipo {
   
 	private String nombre;
 	private Long cantidadAfiliados;
+	
+	private Liga liga;
 
 	public String getNombre() {
 		return nombre;

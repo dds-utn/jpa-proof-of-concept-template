@@ -1,11 +1,14 @@
 package utn.dds.persistencia.futbol.persistence;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Partido {
@@ -20,6 +23,8 @@ public class Partido {
 	private Formacion local;
 	@ManyToOne
 	private Formacion visitante;
+	
+	private List<Jugador> goleadores = new ArrayList<>();
 
 	public Calendar getFecha() {
 		return fecha;
@@ -36,6 +41,11 @@ public class Partido {
 	public void setCantidadEspectadores(Integer cantidadEspectadores) {
 		this.cantidadEspectadores = cantidadEspectadores;
 	}
+	
+	public void registrarGol(Jugador jugador, Formacion formacion) {
+	  formacion.setGoles(formacion.getGoles() + 1);
+	  goleadores.add(jugador);
+	}
 
 	public Formacion ganador() {
 		if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
@@ -44,6 +54,10 @@ public class Partido {
 			return visitante;
 		}
 	}
+	
+	public List<Jugador> getGoleadores() {
+      return goleadores;
+    }
 	
 	public Long getId() {
         return id;
