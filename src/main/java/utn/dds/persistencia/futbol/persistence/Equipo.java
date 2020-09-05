@@ -1,7 +1,18 @@
 package utn.dds.persistencia.futbol.persistence;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Equipos")
 public class Equipo {
   
+    @Id
+    @GeneratedValue
+    private Long id;
+    
 	private String nombre;
 	private Long cantidadAfiliados;
 
