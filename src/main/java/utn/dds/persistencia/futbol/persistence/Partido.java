@@ -12,8 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.Transient;
 
+import utn.dds.persistencia.futbol.persistence.difusion.Difusion;
+
 @Entity
-public class Partido {
+public class Partido implements Competitivo {
   
     @Id @GeneratedValue
     private Long id;
@@ -29,6 +31,9 @@ public class Partido {
 	@ManyToMany
 	@OrderColumn(name = "posicion")
 	private List<Jugador> goleadores = new ArrayList<>();
+	
+	@Transient
+	private Difusion difusion;
 
 	public Calendar getFecha() {
 		return fecha;
@@ -65,6 +70,11 @@ public class Partido {
 	
 	public Long getId() {
         return id;
+    }
+	
+	@Override
+    public boolean esDeAltoRendimiento() {
+        return cantidadEspectadores > 100000;
     }
 
 }

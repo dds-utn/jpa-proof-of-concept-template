@@ -1,6 +1,7 @@
 package utn.dds.persistencia.futbol.persistence;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,17 +9,19 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OrderColumn;
-import javax.persistence.Transient;
+
+import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
 
 @Entity
-public class Jugador {
+public class Jugador implements Auditable {
   
     @Id @GeneratedValue
     private Long id;
 	
 	private String nombre;
 	private String posicion;
+	
+	private Date ultimaModificacion;
 
 	public String getNombre() {
 		return nombre;
@@ -42,6 +45,18 @@ public class Jugador {
 	
 	public Long getId() {
         return id;
+    }
+	
+    
+    @Override
+    public Date getUltimaModificacion() {
+        return ultimaModificacion;
+    }
+    
+    @Override
+    public boolean esSospechoso() {
+      // TODO
+      return false;
     }
 
 }
