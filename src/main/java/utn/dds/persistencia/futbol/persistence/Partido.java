@@ -7,7 +7,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Transient;
 
 @Entity
@@ -24,6 +26,8 @@ public class Partido {
 	@ManyToOne
 	private Formacion visitante;
 	
+	@ManyToMany
+	@OrderColumn(name = "posicion")
 	private List<Jugador> goleadores = new ArrayList<>();
 
 	public Calendar getFecha() {

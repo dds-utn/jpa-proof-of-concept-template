@@ -1,6 +1,9 @@
 package utn.dds.persistencia.futbol.persistence;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -13,6 +16,8 @@ public class Equipo {
 	private String nombre;
 	private Long cantidadAfiliados;
 	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "codigo_liga")
 	private Liga liga;
 
 	public String getNombre() {

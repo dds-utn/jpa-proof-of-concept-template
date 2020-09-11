@@ -3,11 +3,13 @@ package utn.dds.persistencia.futbol.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OrderColumn;
+import javax.persistence.Transient;
 
 @Entity
 public class Jugador {
@@ -21,7 +23,9 @@ public class Jugador {
 	public String getNombre() {
 		return nombre;
 	}
-	
+
+	@ElementCollection
+	@Column(name = "description")
 	private List<String> lesiones = new ArrayList<>();
 
 	public void setNombre(String nombre) {

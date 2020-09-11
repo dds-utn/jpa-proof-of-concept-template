@@ -1,6 +1,7 @@
 package utn.dds.persistencia.futbol.persistence;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ public class Formacion {
 	private Equipo equipo;
 	
 	@ManyToMany
-	private List<Jugador> jugadores = new ArrayList<Jugador>();
+	private Collection<Jugador> jugadores = new ArrayList<Jugador>();
 
 	public Equipo getEquipo() {
 		return equipo;
@@ -31,7 +32,7 @@ public class Formacion {
 		this.equipo = equipo;
 	}
 
-	public List<Jugador> getJugadores() {
+	public Collection<Jugador> getJugadores() {
 		return jugadores;
 	}
 
