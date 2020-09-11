@@ -32,7 +32,7 @@ public class Partido implements Competitivo {
 	@OrderColumn(name = "posicion")
 	private List<Jugador> goleadores = new ArrayList<>();
 	
-	@Transient
+	@ManyToOne
 	private Difusion difusion;
 
 	public Calendar getFecha() {

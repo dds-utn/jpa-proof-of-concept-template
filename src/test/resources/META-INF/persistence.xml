@@ -12,6 +12,10 @@
         <class>utn.dds.persistencia.futbol.persistence.Formacion</class>
         <class>utn.dds.persistencia.futbol.persistence.Equipo</class>
         <class>utn.dds.persistencia.futbol.persistence.Partido</class>
+        <class>utn.dds.persistencia.futbol.persistence.difusion.Difusion</class>
+        <class>utn.dds.persistencia.futbol.persistence.difusion.PagarParaVer</class>
+        <class>utn.dds.persistencia.futbol.persistence.difusion.SinDifusion</class>
+        <class>utn.dds.persistencia.futbol.persistence.difusion.TVPublica</class>
         
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
