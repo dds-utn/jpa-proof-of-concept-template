@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -32,7 +33,7 @@ public class Partido implements Competitivo {
 	@OrderColumn(name = "posicion")
 	private List<Jugador> goleadores = new ArrayList<>();
 	
-	@ManyToOne
+	@Enumerated
 	private Difusion difusion;
 
 	public Calendar getFecha() {
