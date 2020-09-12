@@ -9,6 +9,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
@@ -27,7 +29,8 @@ public class Equipo  implements Auditable, Competitivo {
 	@Column(name = "codigo_liga")
 	private Liga liga;
 	
-	@Transient
+	@OneToMany
+	@JoinColumn(name = "equipo_id")
 	private List<Producto> productosEnTienda;
 
 	private Date ultimaModificacion;

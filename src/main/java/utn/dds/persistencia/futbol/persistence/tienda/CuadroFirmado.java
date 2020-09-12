@@ -1,5 +1,8 @@
 package utn.dds.persistencia.futbol.persistence.tienda;
 
+import javax.persistence.Entity;
+
+@Entity
 public class CuadroFirmado extends Producto {
   
   private String firmante;
