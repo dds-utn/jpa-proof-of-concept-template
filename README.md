@@ -1,14 +1,15 @@
 ORM
 ===
 
+# Parte 1: Mapeos básico
 
-# 0. Recuperando lo visto
+## 0. Recuperando lo visto
 
 ¿Qué recuerdan del apunte?
 
-# 1. ¿Por qué necesito ORM?
+## 1. ¿Por qué necesito ORM?
 
-## 1.1 Capa de abstracción
+### 1.1 Capa de abstracción
 
 > Nota: el código está [acá](https://github.com/dds-utn/eg-equipos-futbol-jdbc-java)
 
@@ -40,7 +41,7 @@ Veamos un ejemplo de JDBC.
 
 Moraleja: trabajar a un bajo nivel de abstracción usando directamente JDBC es tedioso y propenso a error.
 
-## 1.2 Desadaptación de impedancia
+### 1.2 Desadaptación de impedancia
 
 > En electrónica adaptar o emparejar las impedancias, consiste en hacer que la impedancia de salida de un origen de señal,
 > como puede ser una fuente de alimentación o un amplificador, sea igual a la impedancia de entrada de la carga a la cual se conecta.
@@ -52,11 +53,11 @@ Ehhh... no. No es esto. ¿Cuáles son las diferencias entre estos dos mundos?
  * identidad
 
 
-# 2. Mapeos básicos
+## 2. Mapeos básicos
 
 > Nota: el código está [acá](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol)
 
-## 2.1 Primero lo primero: dependencias
+### 2.1 Primero lo primero: dependencias
 
 Vamos a necesitar de JPA/Hibernate....
 
@@ -77,17 +78,17 @@ Y también vamos a tener que configurarlo.
   * Quizás también sean necesarias variables de entorno
 
 
-## 2.2 Segundo lo segundo: el modelo
+### 2.2 Segundo lo segundo: el modelo
 
 > Con ustedes... ¡un modelo de objetos!
 
 Como van a ver, el modelo es bastante de objetos es bastante puro, no tiene absolutamente **nada** específico de la persistencia.
 
 
-## 2.3 Pero no tan rápido, ¡anoten!
+### 2.3 Pero no tan rápido, ¡anoten!
 
 > * Nota 1: Para ver el código **ANTES** de este paso, ver la rama [`futbol-sin-mapeos`](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol-sin-mapeos)
-> * Nota 2: Su nueva amiga, la [guía de anotaciones](https://docs.google.com/document/d/1jWtehhVCFYECKvpdcCxnEgWZFCv2fR2WPyUJSoiX3II/edit#heading=h.r09lefmcufkn)
+#> * Nota 2: Su nueva amiga, la [guía de anotaciones](https://docs.google.com/document/d/1jWtehhVCFYECKvpdcCxnEgWZFCv2fR2WPyUJSoiX3II/edit#heading=h.r09lefmcufkn)
 
 1. Primero tenemos que decir cuáles clases son persistentes, con `@Entity`
 2. Luego, tenemos que decirle a JPA dónde buscar esas anotaciones en el `persistence.xml`:
@@ -122,7 +123,7 @@ Hibernate:
 
 > Nota técnica: ¿y si voy a la base de datos, por qué no lo veo? Porque los tests son _transaccionales_, es decir que por defecto no se comitea
 
-# 3. Relaciones.
+## 3. Relaciones.
 
 * `@OneToMany` (relación "mentirosa", porque en realidad termina siendo una many-to-many; más adelante lo profundizaremos)
 * `@ManyToOne`
@@ -132,11 +133,11 @@ Y de yapa:
 
 * `@Transient`, que nos permite ignorar un atributo (y por tanto, no se persitirá)
 
-# 4. Identidad
+## 4. Identidad
 
 > ¿Y vos quien sos?
 
-## 4.1 Primera situación: un sólo objeto
+### 4.1 Primera situación: un sólo objeto
 
 ```java
 Jugador dani = new Jugador();
@@ -150,7 +151,7 @@ entityManager().persist(dani); // hago persistible a dani
 dani.getId(); // ahora es != null
 ```
 
-## 4.2 Segunda situación: dos objetos
+### 4.2 Segunda situación: dos objetos
 
 
 ```java
@@ -164,7 +165,7 @@ entityManager().persist(caro);
 dani.getId(); // ahora es != null, y también != del id de dani
 ```
 
-## 4.3 Tercera situación: trayendo los objetos de la base
+### 4.3 Tercera situación: trayendo los objetos de la base
 
 ```java
 Jugador dani2 = entityManager().find(Jugador.class, dani.getId());
@@ -196,9 +197,9 @@ Conclusiones:
 > pero en el contexto de una aplicación web no es tan común recurrir a ellas
 
 
-# 5. Esquemas
+## 5. Esquemas
 
-> Ver https://github.com/uqbar-project/jpa-java8-extras#schema-generation
+#> Ver https://github.com/uqbar-project/jpa-java8-extras#schema-generation
 
 Si ejecutamos la clase `org.uqbarproject.jpa.java8.extras.export.JpaSchemaExport` con
 los argumentos `db schema.sql true true` nos generará un archivo `schema.sql` con un esquema como el siguiente:
@@ -230,3 +231,57 @@ alter table Formacion
     foreign key (equipo_id)
     references Equipo
 ```
+
+## Parte 2: Extensiones
+
+> * Nota: Para ver el código **ANTES** de este paso, ver la rama [`futbol-extendido-sin-mapeos`](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol-extendido-sin-mapeos)
+
+* `@OrderColumn` para darle orden a las listas
+* `@ElementCollection` para listas de elementos simples
+
+## Parte 3: Herencia
+
+### 1 El problema
+
+No hay subtipos en relacional :(
+
+### 2 La solución
+
+Hay distintas formas de simulararla según la necesidad: 3 + 1 estrategias:
+
+  - Single table
+  - Joined
+  - Table Per Class
+  - Mapped Superclass
+
+### 3 `Difusion`: Polimorfimo clásico
+
+> * Nota: Para ver el código **ANTES** de este paso, ver la rama [`futbol-extendido-herencia-sin-mapeos`](https://github.com/dds-utn/jpa-proof-of-concept-template/tree/futbol-extendido-herencia-sin-mapeos)
+
+Se puede hacer con single table o también se puede enumerar, bajo ciertas condiciones.
+
+**LO IMPORTANTE ES QUE SE CONVIERTE LA INTERFAZ EN CLASE (que puede ser abstracta)**
+
+### 4 `Difusion` reintepretada
+
+Cuando las entidades son stateless y presentan una jerarquía de subtipos acotada, dando lugar a subtipos bien conocidos y por consiguiente
+a instancias bien conocidas, es posible evitar el problema de los subtipos mediante la conversión a enums. Esto se explora en la rama `futbol-extendido-herencia-alternativa-enums`
+
+
+### 5 `Producto`: Herencia clásica
+
+También va con single table. Incluso podremos reutilizar algunas columnas.
+
+### 6 `Producto` bis: Una jerarquía de subtipos un poco "amplia"
+
+Cuando la divergencia en estado y semántica empieza a crecer, empezamos a tener problemas con nuestro modelo de datos,
+que se convierte en una "bolsa de gatos". Joined nos ayudará a normalizar a expensas de un poco de rendimiento.
+
+### 7 `Competitivo`: Una jerarquía que no es persitente
+
+### 8 `Auditable`: Una jerarquía persistente pero muy laxa
+
+Ojo, además de usar `table-per-class` tenemos que cambiar el generador de IDs a `SEQUENCE`.
+En este caso particular no hubo grandes problemas, pero ojo, porque si la FK hubiera estado del otro lado de la relación, no hubiera sido posible
+crear una verdadera FK (porque no hay una tabla a la que referenciar) sino tan solo una columna indexada que apunta a la nada. Si bien anda,
+se pierde la integridad referencial.
