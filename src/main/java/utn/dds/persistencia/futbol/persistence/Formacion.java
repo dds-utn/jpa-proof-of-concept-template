@@ -6,18 +6,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
 
 @Entity
-public class Formacion implements Auditable {
-  
-    @Id @GeneratedValue
-    private Long id;
+public class Formacion extends Auditable {
   
 	private Long goles;
 	
@@ -53,9 +48,6 @@ public class Formacion implements Auditable {
 		this.goles = goles;
 	}
 	
-	public Long getId() {
-        return id;
-    }
     
     @Override
     public Date getUltimaModificacion() {

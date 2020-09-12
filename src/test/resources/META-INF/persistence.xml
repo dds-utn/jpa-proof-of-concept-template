@@ -21,6 +21,8 @@
         <class>utn.dds.persistencia.futbol.persistence.tienda.Pantalon</class>
         <class>utn.dds.persistencia.futbol.persistence.tienda.KitDeMate</class>
         <class>utn.dds.persistencia.futbol.persistence.tienda.CuadroFirmado</class>
+        <class>utn.dds.persistencia.futbol.persistence.auditoria.Auditoria</class>
+        <class>utn.dds.persistencia.futbol.persistence.auditoria.Auditable</class>
         
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        

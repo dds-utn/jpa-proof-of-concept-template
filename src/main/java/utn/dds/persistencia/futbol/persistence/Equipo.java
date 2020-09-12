@@ -17,10 +17,7 @@ import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
 import utn.dds.persistencia.futbol.persistence.tienda.Producto;
 
 @Entity
-public class Equipo  implements Auditable, Competitivo {
-  
-    @Id @GeneratedValue
-    private Long id;
+public class Equipo extends Auditable implements Competitivo {
   
 	private String nombre;
 	private Long cantidadAfiliados;
@@ -51,9 +48,6 @@ public class Equipo  implements Auditable, Competitivo {
 		this.cantidadAfiliados = cantidadAfiliados;
 	}
 	
-	public Long getId() {
-        return id;
-    }
 	
 	@Override
 	public Date getUltimaModificacion() {
