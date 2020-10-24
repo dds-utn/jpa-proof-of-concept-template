@@ -1,7 +1,12 @@
 body {
-  margin: 5vh 30vw;
+  margin: 0;
   font-family: Lato, sans-serif;
   font-weight: 300;
+}
+
+main {
+    width: 90%;
+    margin: auto;
 }
 
 h1 {
@@ -14,6 +19,14 @@ h2 {
 
 
 footer {
-  position: absolute;
-  bottom: 0;
+
+}
+
+section.fondo-gris {
+    background: lightgrey;
+}
+
+footer.fondo-gris {
+    background: grey;
+    color: white;
 }

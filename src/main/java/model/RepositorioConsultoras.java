@@ -14,6 +14,12 @@ public class RepositorioConsultoras implements WithGlobalEntityManager {
         .getResultList();
   }
 
+  public List<Consultora> listarSegunEmpleados() {
+    return entityManager()//
+            .createQuery("from Consultora order by cantidad_empleados desc", Consultora.class) //
+            .getResultList();
+  }
+
   public Consultora buscar(long id) {
     return entityManager().find(Consultora.class, id);
   }

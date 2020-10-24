@@ -1,65 +1,57 @@
-<html>
+{{# partial "titulo" }}
+    <title>Consultorea.me - Home</title>
+{{/partial}}
 
-<head>
-	<link rel="stylesheet" type="text/css" href="/main.css">
-</head>
 
-<body>
-	<nav>
-	</nav>
-	<main>
-		<h1>Consultorea.me</h1>
+{{# partial "contenido" }}
+    <section class="fondo-gris">
+        <h2>Sobre nuestro sitio</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta neque sed nisi rutrum, eu ultricies lacus
+            rutrum. In sagittis, nunc a pellentesque egestas, lacus odio tincidunt nunc, nec facilisis ipsum lorem sit amet
+            mauris. Maecenas vel mi turpis. Morbi ac lacus auctor ante dignissim aliquam vitae vel turpis. Suspendisse
+            tincidunt mi id commodo consectetur. Suspendisse ut gravida justo. Praesent a lectus ut nisl iaculis bibendum.
+            Nam nec sem sit amet sapien pharetra sodales. Proin congue, tortor ut condimentum fringilla, risus mauris
+            ultrices enim, vitae semper diam leo ac nisi.
+        </p>
 
-		<section>
-			<h2>Sobre nuestro sitio</h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta neque sed nisi rutrum, eu ultricies lacus
-				rutrum. In sagittis, nunc a pellentesque egestas, lacus odio tincidunt nunc, nec facilisis ipsum lorem sit amet
-				mauris. Maecenas vel mi turpis. Morbi ac lacus auctor ante dignissim aliquam vitae vel turpis. Suspendisse
-				tincidunt mi id commodo consectetur. Suspendisse ut gravida justo. Praesent a lectus ut nisl iaculis bibendum.
-				Nam nec sem sit amet sapien pharetra sodales. Proin congue, tortor ut condimentum fringilla, risus mauris
-				ultrices enim, vitae semper diam leo ac nisi.
-			</p>
+        <p>
+            Donec semper purus risus, ut semper diam condimentum in. Mauris id gravida nulla. Quisque id nisl ut erat
+            condimentum accumsan vel et arcu. Sed dapibus justo ut sapien venenatis, non volutpat elit ornare. Ut cursus,
+            dui nec egestas efficitur, turpis nulla venenatis sapien, et vulputate sapien nibh et arcu. Vivamus non
+            facilisis mi. Curabitur augue metus, fringilla at consectetur eu, molestie ac lectus. Aliquam imperdiet leo
+            cursus, dapibus purus in, pretium turpis. Aenean porta, quam et imperdiet faucibus, orci augue sollicitudin
+            enim, nec cursus purus velit a lacus. Integer nunc sem, aliquam sed tortor maximus, imperdiet placerat leo. Sed
+            dapibus dui quam, nec sodales velit suscipit a.
+        </p>
 
-			<p>
-				Donec semper purus risus, ut semper diam condimentum in. Mauris id gravida nulla. Quisque id nisl ut erat
-				condimentum accumsan vel et arcu. Sed dapibus justo ut sapien venenatis, non volutpat elit ornare. Ut cursus,
-				dui nec egestas efficitur, turpis nulla venenatis sapien, et vulputate sapien nibh et arcu. Vivamus non
-				facilisis mi. Curabitur augue metus, fringilla at consectetur eu, molestie ac lectus. Aliquam imperdiet leo
-				cursus, dapibus purus in, pretium turpis. Aenean porta, quam et imperdiet faucibus, orci augue sollicitudin
-				enim, nec cursus purus velit a lacus. Integer nunc sem, aliquam sed tortor maximus, imperdiet placerat leo. Sed
-				dapibus dui quam, nec sodales velit suscipit a.
-			</p>
+        <p>
+            lsdkasldksakdl
+        </p>
 
-			<p>
-				lsdkasldksakdl
-			</p>
+        <ol>
+            <li>Somos una empresa joven</li>
+            <li>Altos valores</li>
+            <li>Decimos lo que la gente quiere escuchar</li>
+        </ol>
 
-			<ol>
-				<li>Somos una empresa joven</li>
-				<li>Altos valores</li>
-				<li>Decimos lo que la gente quiere escuchar</li>
-			</ol>
+        Para saber más sobre nuestros valores presionar <a href="/nuestros-valores">acá</a>
+    </section>
 
-			Para saber más sobre nuestros valores presionar <a href="/nuestros-valores">acá</a>
-		</section>
+    <section>
+        <h2>Sobre nuestros clientes</h2>
 
-		<section>
-			<h2>Sobre nuestros clientes</h2>
+        <p>un bonito texto sobre nuestros clientes.</p>
 
-			<p>un bonito texto sobre nuestros clientes.</p>
+        <ul>
+            {{#consultoras}}
+                <li>{{nombre}}</li>
+            {{/consultoras}}
+        </ul>
 
-			<ul>
-				{{#consultoras}}
-				<li>{{nombre}}</li>
-				{{/consultoras}}
-			</ul>
+        <a href="/consultoras">Ver más...</a>
 
-		</section>
-	</main>
-	<footer>
-		Copyright {{anio}} Consultorea.me
-	</footer>
-</body>
+    </section>
+{{/partial}}
 
-</html>
+{{> layout.html.hbs }}
