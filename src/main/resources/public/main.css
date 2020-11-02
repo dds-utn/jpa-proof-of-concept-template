@@ -30,3 +30,19 @@ footer.fondo-gris {
     background: grey;
     color: white;
 }
+
+.nueva-consultora .campo{
+    margin: 10px ;
+}
+
+.nueva-consultora .nombre-campo{
+    margin-right: 10px;
+}
+
+.login .campo{
+    margin: 10px ;
+}
+
+.login .nombre-campo{
+    margin-right: 10px;
+}

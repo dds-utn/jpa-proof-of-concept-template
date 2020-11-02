@@ -2,6 +2,7 @@ package main;
 
 import model.Consultora;
 
+import model.Usuario;
 import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
@@ -28,6 +29,7 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
       persist(new Consultora("otraConsultora", 10));
       persist(new Consultora("pirulo.com", 15));
       persist(new Consultora("blah", 2));
+      persist(new Usuario("roli", "rolito"));
     });
   }
 

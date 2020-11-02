@@ -1,0 +1,24 @@
+{{# partial "titulo" }}
+    <title>Consultorea.me - Nueva Consultora</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="fondo-gris">
+        <h2>Nueva Consultora</h2>
+
+        <form class="nueva-consultora" action="/consultoras" method="POST">
+            <div class="campo">
+                <span class="nombre-campo">Nombre:</span><input type="text" name="nombre" placeholder="Ingrese nombre">
+            </div>
+            <div class="campo">
+                <span class="nombre-campo">Cantidad de empleados</span><input type="number" name="cantEmpleados" >
+            </div>
+            <input type="submit" value="Crear consultora">
+        </form>
+
+
+
+    </section>
+{{/partial}}
+
+{{> layout.html.hbs }}
