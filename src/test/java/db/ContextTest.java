@@ -12,10 +12,4 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
 	public void contextUp() {
 		assertNotNull(entityManager());
 	}
-
-	@Test
-	public void contextUpWithTransaction() throws Exception {
-		withTransaction(() -> {});
-	}
-
 }

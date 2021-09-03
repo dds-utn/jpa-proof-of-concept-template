@@ -22,7 +22,6 @@
 	  <artifactId>jpa-java8-extras</artifactId>
 	  <version>1.0-alpha-1</version>
 	</dependency>
-    
     <!-- drivers jdbc -->
     <!-- mysql -->
     <dependency>

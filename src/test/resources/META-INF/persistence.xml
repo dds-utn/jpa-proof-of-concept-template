@@ -7,8 +7,11 @@
   
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>utn.dds.persistencia.futbol.persistence.Jugador</class>
+        <class>utn.dds.persistencia.futbol.persistence.Equipo</class>
+        <class>utn.dds.persistencia.futbol.persistence.Formacion</class>
 
-        <properties> 
+        <properties>
 	    <property name="hibernate.archive.autodetection" value="class"/>        
         
             <!--property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 

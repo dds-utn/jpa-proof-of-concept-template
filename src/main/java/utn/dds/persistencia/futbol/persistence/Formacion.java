@@ -1,14 +1,23 @@
 package utn.dds.persistencia.futbol.persistence;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Formacion {
-  
+
+	@Id
+	@GeneratedValue
+	private Long id;
 	private Long goles;
-	
+
+	@ManyToOne
+	// IMPORTANTE: NO ES NECESARIO HACER MAPEOS BIDIRECCIONALES
+	// DE HECHO, EN GENERAL ESTA **MAL**
 	private Equipo equipo;
-	
+
+	@ManyToMany
 	private List<Jugador> jugadores = new ArrayList<Jugador>();
 
 	public Equipo getEquipo() {
