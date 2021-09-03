@@ -3,11 +3,7 @@ package utn.dds.persistencia.futbol.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OrderColumn;
+import javax.persistence.*;
 
 @Entity
 public class Jugador {
@@ -18,11 +14,17 @@ public class Jugador {
 	private String nombre;
 	private String posicion;
 
+	// 1. Decidimos promover las lesiones de strings a
+	// objetos de dominio
+	// 2. Acabamos de usar una OneToMany
+	@OneToMany
+	@JoinColumn(name = "jugador_id")
+	private List<Lesion> lesiones = new ArrayList<>();
+
 	public String getNombre() {
 		return nombre;
 	}
 	
-	private List<String> lesiones = new ArrayList<>();
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;

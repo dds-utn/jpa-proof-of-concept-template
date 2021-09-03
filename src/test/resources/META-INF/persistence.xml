@@ -12,9 +12,10 @@
         <class>utn.dds.persistencia.futbol.persistence.Formacion</class>
         <class>utn.dds.persistencia.futbol.persistence.Equipo</class>
         <class>utn.dds.persistencia.futbol.persistence.Partido</class>
-        
-        <properties> 
-	    <property name="hibernate.archive.autodetection" value="class"/>        
+        <class>utn.dds.persistencia.futbol.persistence.Lesion</class>
+
+        <properties>
+	    <property name="hibernate.archive.autodetection" value="class"/>
         
             <!--property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/prueba" /> 

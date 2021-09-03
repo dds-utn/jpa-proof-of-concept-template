@@ -12,7 +12,8 @@ public class Equipo {
   
 	private String nombre;
 	private Long cantidadAfiliados;
-	
+
+	// ¿y que paso con esto?
 	private Liga liga;
 
 	public String getNombre() {
