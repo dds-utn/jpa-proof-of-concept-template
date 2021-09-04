@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
 
 @Entity
-public class Formacion implements Auditable {
+public class Formacion extends Auditable {
   
     @Id @GeneratedValue
     private Long id;

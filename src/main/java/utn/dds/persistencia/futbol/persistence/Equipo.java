@@ -15,7 +15,7 @@ import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
 import utn.dds.persistencia.futbol.persistence.tienda.Producto;
 
 @Entity
-public class Equipo  implements Auditable, Competitivo {
+public class Equipo  extends Auditable implements Competitivo {
   
     @Id @GeneratedValue
     private Long id;

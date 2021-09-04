@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
 
 @Entity
-public class Jugador implements Auditable {
+public class Jugador extends Auditable {
   
     @Id @GeneratedValue
     private Long id;
@@ -25,9 +25,7 @@ public class Jugador implements Auditable {
 
 	public Jugador(String nombre) { this.nombre = nombre; }
 
-	public Jugador() {
-
-	}
+	public Jugador() {	}
 
 	public String getNombre() {
 		return nombre;

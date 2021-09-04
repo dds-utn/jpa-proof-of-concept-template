@@ -1,5 +1,7 @@
 package utn.dds.persistencia.futbol.persistence.difusion;
+import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
 import utn.dds.persistencia.futbol.persistence.Partido;
 
 import javax.persistence.*;
@@ -9,12 +11,17 @@ import javax.persistence.*;
 public abstract class Difusion {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.TABLE)
-  private long id;
+  @GeneratedValue(generator = "UUID")
+  @GenericGenerator(
+          name = "UUID",
+          strategy = "org.hibernate.id.UUIDGenerator"
+  )
+  private String id;
   
+  private String codigo;
+
   public abstract void iniciarDifusion(Partido partido);
   public abstract void finalizarDifusion(Partido partido);
 
-  public long getId() { return id; }
-
+  public String getId() { return id; }
 }

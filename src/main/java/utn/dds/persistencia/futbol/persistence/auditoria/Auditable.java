@@ -1,11 +1,19 @@
 package utn.dds.persistencia.futbol.persistence.auditoria;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
-public interface Auditable {
+@MappedSuperclass
+public abstract class Auditable {
   
-  public Date getUltimaModificacion();
+  @Id
+  @GeneratedValue
+  private Long id;
   
-  public boolean esSospechoso();
+  public abstract Date getUltimaModificacion();
+  
+  public abstract boolean esSospechoso();
 
 }

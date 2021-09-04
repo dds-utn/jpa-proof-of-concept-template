@@ -1,8 +1,9 @@
 package utn.dds.persistencia.futbol.persistence.difusion;
 
-import utn.dds.persistencia.futbol.persistence.Partido;
 
 import javax.persistence.Entity;
+import utn.dds.persistencia.futbol.persistence.Partido;
+
 
 @Entity
 public class PagarParaVer extends Difusion {

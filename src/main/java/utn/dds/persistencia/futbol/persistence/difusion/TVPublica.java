@@ -5,7 +5,9 @@ import utn.dds.persistencia.futbol.persistence.Partido;
 import javax.persistence.Entity;
 
 @Entity
-public class TVPublica extends Difusion {
+public class TVPublica extends  Difusion {
+  
+  private String frecuencia;
 
   @Override
   public void iniciarDifusion(Partido partido) {
