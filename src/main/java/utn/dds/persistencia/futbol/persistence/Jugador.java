@@ -23,6 +23,12 @@ public class Jugador implements Auditable {
 	
 	private Date ultimaModificacion;
 
+	public Jugador(String nombre) { this.nombre = nombre; }
+
+	public Jugador() {
+
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
