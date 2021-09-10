@@ -1,9 +1,12 @@
 package model;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.uqbarproject.jpa.java8.extras.convert.LocalDateConverter;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Deposito {
@@ -11,6 +14,9 @@ public class Deposito {
 	@Id
 	@GeneratedValue
 	private int id;
+
+	@Transient
+	private List<Date> fechasDeInspeccion;
 
 	private int capacidadM3;
 
@@ -20,6 +26,9 @@ public class Deposito {
 
 	@Embedded
 	private Posicion posicion;
+
+	@Transient
+	private Collection<Posicion> entradas;
 
 	public int getId() {
 		return id;
