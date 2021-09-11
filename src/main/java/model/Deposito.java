@@ -7,16 +7,22 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "depositos")
 public class Deposito {
 
 	@Id
 	@GeneratedValue
 	private int id;
 
-	@Transient
-	private List<Date> fechasDeInspeccion;
+	@OneToMany
+	@JoinColumn(name = "deposito_id")
+	private Set<Vehiculo> vehiculos;
+
+	@ElementCollection
+	private Collection<Date> fechasDeInspeccion;
 
 	private int capacidadM3;
 
@@ -27,8 +33,9 @@ public class Deposito {
 	@Embedded
 	private Posicion posicion;
 
-	@Transient
-	private Collection<Posicion> entradas;
+	@ElementCollection
+	@OrderColumn(name = "prioridad")
+	private List<Posicion> entradas;
 
 	public int getId() {
 		return id;

@@ -1,12 +1,9 @@
 package model;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "vehiculos")
 public class Vehiculo {
 
 	@Id
@@ -15,6 +12,7 @@ public class Vehiculo {
 
 	private String patente;
 
+	@Column(name = "velocidad_maxima")
 	private int velocidadMaxima;
 
 	@Embedded
