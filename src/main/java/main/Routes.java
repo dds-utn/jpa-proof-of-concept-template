@@ -18,18 +18,18 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class Routes {
 
     public static void main(String[] args) {
-        System.out.println("Iniciando servidor");
+        System.out.println("Corriendo bootstrap...");
+        new Bootstrap().run();
 
+        System.out.println("Iniciando servidor...");
         Spark.port(8080);
         Spark.staticFileLocation("/public");
 
-        new Bootstrap().run();
 
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         ConsultorasController consultorasController = new ConsultorasController();
         HomeController homeController = new HomeController();
         UsuariosController usuariosController = new UsuariosController();
-
 
         Spark.get("/", (request, response) -> homeController.getHome(), engine);
 
@@ -44,6 +44,8 @@ public class Routes {
         Spark.get("/login", (request, response) -> usuariosController.getFormularioLogin(request, response), engine);
 
         Spark.post("/login", (request, response) -> usuariosController.iniciarSesion(request, response));
+
+        System.out.println("Servidor iniciado!");
 
     }
 
