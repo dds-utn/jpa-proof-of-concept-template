@@ -9,7 +9,7 @@
         <p>A continuación un listado de nuestras consultoras más importantes</p>
 
         <form action="/consultoras" method="GET">
-            Buscar por username
+            Buscar por nombre:
             <input type="text" name="filtro" placeholder="Ingrese el username de la consultora a buscar">
 
             <input type="submit" value="Buscar">
@@ -17,7 +17,7 @@
 
         <ul>
             {{#consultoras}}
-                <li><a href="consultoras/{{id}}">{{username}}</a></li>
+                <li><a href="consultoras/{{id}}">{{nombre}}</a></li>
             {{/consultoras}}
         </ul>
 
