@@ -26,5 +26,10 @@ public class RepositorioUsuarios implements WithGlobalEntityManager {
     entityManager().persist(usuario);
   }
 
+  public Usuario buscarPorUsuarioYContrasenia(String username, String password) {
+    return listar().stream()
+        .filter(u -> u.getPassword().equals(password) && u.getUsername().equals(username)).findFirst().get();
+  }
+
 
 }

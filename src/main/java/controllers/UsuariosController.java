@@ -22,14 +22,9 @@ public class UsuariosController {
     public Void iniciarSesion(Request request, Response response) {
         String password = request.queryParams("password");
         String username = request.queryParams("username");
-        Usuario usuario = RepositorioUsuarios.instancia.listar().stream()
-                .filter(u -> u.getPassword().equals(password) && u.getUsername().equals(username)).findFirst().get();
-
+        Usuario usuario = RepositorioUsuarios.instancia.buscarPorUsuarioYContrasenia(username, password);
         request.session().attribute("idUsuario", usuario.getId());
-
         response.redirect("/");
-
         return null;
-
     }
 }
