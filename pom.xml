@@ -23,6 +23,12 @@
       <version>2.9.3</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-template-handlebars</artifactId>
+      <version>2.7.1</version>
+    </dependency>
+
     <!-- JPA Persistence Dependencies -->
     <dependency>
       <groupId>org.uqbar-project</groupId>
