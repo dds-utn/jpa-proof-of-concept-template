@@ -29,7 +29,6 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
       persist(new Consultora("otraConsultora", 10));
       persist(new Consultora("pirulo.com", 15));
       persist(new Consultora("blah", 2));
-      persist(new Usuario("roli", "rolito"));
     });
   }
 
