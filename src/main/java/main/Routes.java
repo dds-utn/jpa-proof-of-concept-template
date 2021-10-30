@@ -2,6 +2,7 @@ package main;
 
 import controllers.ConsultorasController;
 import controllers.HomeController;
+import controllers.SesionController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -19,8 +20,9 @@ public class Routes {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         ConsultorasController consultorasController = new ConsultorasController();
         HomeController homeController = new HomeController();
+        SesionController sesionController = new SesionController();
 
-        Spark.get("/", (request, response) -> homeController.getHome(), engine);
+        Spark.get("/", homeController::getHome, engine);
 
         Spark.get("/consultoras", consultorasController::getConsultoras, engine);
 
@@ -28,8 +30,15 @@ public class Routes {
         Spark.get("/consultoras/:id", (request, response) -> consultorasController.getDetalleConsultora(request, response, engine));
         Spark.post("/consultoras", (request, response) -> consultorasController.crearConsultora(request, response));
 
-        System.out.println("Servidor iniciado!");
+        Spark.get("/login", sesionController::mostrarLogin, engine);
+        Spark.post("/login", sesionController::crearSesion);
 
+        Spark.after((request, response) ->  {
+            // TODO franco se los pasa
+            //PerThreadEntityManagers.closeEntityManager();;
+        });
+
+        System.out.println("Servidor iniciado!");
     }
 
 

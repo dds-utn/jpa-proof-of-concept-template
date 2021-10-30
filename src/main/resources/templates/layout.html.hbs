@@ -10,7 +10,11 @@
   <nav>
     <a href="/">Home</a>
     <a href="/consultoras">Nuestras Consultoras</a>
+    {{#if sesionIniciada}}
+    <a href="/logout">Cerrar Sesión</a>
+    {{else}}
     <a href="/login">Iniciar Sesión</a>
+    {{/if}}
   </nav>
   <main>
     <h1>Consultorea.me</h1>

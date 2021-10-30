@@ -30,7 +30,7 @@ public class ConsultorasController implements WithGlobalEntityManager, Transacti
                         RepositorioConsultoras.instancia.listarSegunEmpleados();
 
         modelo.put("consultoras", consultorasMostradas);
-
+        modelo.put("filtro", nombreBuscado);
         return new ModelAndView(modelo, "consultoras.html.hbs");
     }
 
@@ -52,17 +52,11 @@ public class ConsultorasController implements WithGlobalEntityManager, Transacti
         String nombre = request.queryParams("nombre");
         Integer cantidadEmpleados = Integer.parseInt(request.queryParams("cantEmpleados"));
 
-        Usuario usuario = getUsuarioLogueado(request);
-
-        if(usuario != null){
-            response.redirect("/login");
-        }
 
         Consultora nueva = new Consultora(nombre,cantidadEmpleados);
 
-        withTransaction(() ->{
+        withTransaction(() -> {
             RepositorioConsultoras.instancia.agregar(nueva);
-            usuario.agregarConsultora(nueva);
         });
 
         response.redirect("/consultoras/" + nueva.getId());
@@ -70,28 +64,12 @@ public class ConsultorasController implements WithGlobalEntityManager, Transacti
     }
 
     public ModelAndView getFormularioCreacion(Request request, Response response) {
-        if(!estaLogueado(request, response)){
-            response.redirect("/login");
+        if (request.session().attribute("user_id") == null) {
+            response.redirect("/login?orign=/consultoras/nueva");
+            return null;
         }
 
         return new ModelAndView(null, "formulario-creacion.html.hbs");
     }
 
-    private boolean estaLogueado(Request request, Response response) {
-        Usuario usuario = getUsuarioLogueado(request);
-
-        return usuario != null;
-    }
-
-    private Usuario getUsuarioLogueado(Request request) {
-        Long idUsuario = request.session().attribute("idUsuario");
-
-        Usuario usuario = null;
-
-        if(idUsuario != null){
-             usuario = RepositorioUsuarios.instancia.getById(idUsuario);
-        }
-
-        return usuario;
-    }
 }
