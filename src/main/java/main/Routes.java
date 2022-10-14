@@ -17,7 +17,6 @@ public class Routes {
     Spark.port(8080);
     Spark.staticFileLocation("/public");
 
-    
     HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
     
     Spark.get("/", (request, response) -> {
@@ -35,6 +34,10 @@ public class Routes {
         modelo.put("consultoras", RepositorioConsultoras.instancia.listar());
         
         return new ModelAndView(modelo, "index.html.hbs");
+    }, engine);
+
+    Spark.get("/blog", (request, response) -> {
+      return new ModelAndView(null, "blog.html.hbs");
     }, engine);
   }
 

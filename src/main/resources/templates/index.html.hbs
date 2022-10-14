@@ -1,17 +1,12 @@
-<html>
+{{#partial "principal" }}
+ 		<h1>Consultorea.me</h1>
 
-<head>
-	<link rel="stylesheet" type="text/css" href="/main.css">
-</head>
-
-<body>
-	<nav>
-	</nav>
-	<main>
-		<h1>Consultorea.me</h1>
-
+        {{> contratanos.html.hbs }}
 		<section>
 			<h2>Sobre nuestro sitio</h2>
+
+
+
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta neque sed nisi rutrum, eu ultricies lacus
 				rutrum. In sagittis, nunc a pellentesque egestas, lacus odio tincidunt nunc, nec facilisis ipsum lorem sit amet
@@ -41,6 +36,9 @@
 				<li>Decimos lo que la gente quiere escuchar</li>
 			</ol>
 
+
+			{{> contratanos.html.hbs }}
+
 			Para saber más sobre nuestros valores presionar <a href="/nuestros-valores">acá</a>
 		</section>
 
@@ -56,10 +54,7 @@
 			</ul>
 
 		</section>
-	</main>
-	<footer>
-		Copyright {{anio}} Consultorea.me
-	</footer>
-</body>
+{{/partial}}
 
-</html>
+
+{{> layout.html.hbs }}
