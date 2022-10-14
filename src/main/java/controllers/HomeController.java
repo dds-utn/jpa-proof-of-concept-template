@@ -4,16 +4,17 @@ import model.RepositorioConsultoras;
 import spark.ModelAndView;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class HomeController {
 
     public ModelAndView getHome() {
-        Map<String, Object> modelo = new HashMap<>();
-        modelo.put("anio", LocalDate.now().getYear());
-        modelo.put("consultoras", RepositorioConsultoras.instancia.listar().subList(0, 3));
-
-        return new ModelAndView(modelo, "index.html.hbs");
+        Map model = new HashMap();
+        model.put("fecha",  new Date());
+        model.put("consultoras", RepositorioConsultoras.instancia.listar().stream().limit(3).collect(Collectors.toList()));
+        return new ModelAndView(model, "index.html.hbs");
     }
 }

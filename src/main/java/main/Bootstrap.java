@@ -12,6 +12,8 @@ import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
  * 
  * @author flbulgarelli
  */
+
+//Bootstrap // Seed // Migration // Fixture
 public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, TransactionalOps {
 
   public static void main(String[] args) {
