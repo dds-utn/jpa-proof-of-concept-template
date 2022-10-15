@@ -23,6 +23,8 @@ public class Consultora {
   @Column(name = "cantidad_empleados")
   private int cantidadEmpleados;
 
+
+
   @OneToMany(mappedBy = "consultoraEncargada")
   private Collection<Proyecto> proyectos;
 
