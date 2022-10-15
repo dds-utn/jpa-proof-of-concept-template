@@ -13,6 +13,7 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
 import javax.transaction.Transaction;
 
 public class Routes {
@@ -35,6 +36,11 @@ public class Routes {
     Spark.get("/consultoras/nueva", consultorasController::nueva, engine);
     Spark.get("/consultoras/:id", consultorasController::buscar, engine);
     Spark.post("/consultoras", consultorasController::crear);
+
+    Spark.exception(PersistenceException.class, (e, request, response) -> {
+      response.redirect("/500"); //TODO
+    });
+
     Spark.before((request, response) -> {
       PerThreadEntityManagers.getEntityManager().clear();
     });
