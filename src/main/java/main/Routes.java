@@ -30,6 +30,9 @@ public class Routes {
     Spark.get("/", consultorasController::listar, engine);
 
     Spark.get("/blog", (request, response) -> {
+      String cookie =  request.cookie("contadorVisitas");
+      int nro = cookie == null ? 0 : Integer.parseInt(cookie);
+      response.cookie("contadorVisitas", String.valueOf(nro + 1));
       return new ModelAndView(null, "blog.html.hbs");
     }, engine);
 
