@@ -1,7 +1,5 @@
 package model;
 
-import org.uqbarproject.jpa.java8.extras.convert.LocalDateConverter;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;

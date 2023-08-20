@@ -1,19 +1,19 @@
 package db;
 
-import org.junit.Test;
-import org.uqbarproject.jpa.java8.extras.WithEntityManager;
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;
+import io.github.flbulgarelli.jpa.extras.test.SimplePersistenceTest;
+import org.junit.jupiter.api.Test;
 
-public class ContextTest extends AbstractPersistenceTest implements WithGlobalEntityManager {
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-	@Test
-	public void contextUp() {
-		entityManager();
-	}
+public class ContextTest implements SimplePersistenceTest {
 
-	@Test
-	public void contextUpWithTransaction() throws Exception {
-		withTransaction(() -> {});
-	}
+  @Test
+  void contextUp() {
+    assertNotNull(entityManager());
+  }
+
+  @Test
+  void contextUpWithTransaction() throws Exception {
+    withTransaction(() -> {});
+  }
 }
