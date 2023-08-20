@@ -1,7 +1,7 @@
 package utn.dds.persistencia.futbol.persistence.tienda;
 
 public class CuadroFirmado extends Producto {
-  
+
   private String firmante;
   private boolean conMarco;
 
