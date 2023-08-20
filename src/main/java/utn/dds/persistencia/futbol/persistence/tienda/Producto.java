@@ -1,18 +1,12 @@
 package utn.dds.persistencia.futbol.persistence.tienda;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Producto {
-  
-  @Id
-  @GeneratedValue
+
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private Double precio;

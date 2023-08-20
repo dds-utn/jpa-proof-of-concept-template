@@ -4,20 +4,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OrderColumn;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import utn.dds.persistencia.futbol.persistence.difusion.Difusion;
 
 @Entity
 public class Partido implements Competitivo {
   
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 	private Calendar fecha;
