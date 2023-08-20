@@ -9,44 +9,45 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Partido {
-  
-    @Id @GeneratedValue
-    private Long id;
 
-	private Calendar fecha;
-	private Integer cantidadEspectadores;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-	@ManyToOne
-	private Formacion local;
-	@ManyToOne
-	private Formacion visitante;
+  private Calendar fecha;
+  private Integer cantidadEspectadores;
 
-	public Calendar getFecha() {
-		return fecha;
-	}
+  @ManyToOne
+  private Formacion local;
+  @ManyToOne
+  private Formacion visitante;
 
-	public void setFecha(Calendar fecha) {
-		this.fecha = fecha;
-	}
+  public Calendar getFecha() {
+    return fecha;
+  }
 
-	public Integer getCantidadEspectadores() {
-		return cantidadEspectadores;
-	}
+  public void setFecha(Calendar fecha) {
+    this.fecha = fecha;
+  }
 
-	public void setCantidadEspectadores(Integer cantidadEspectadores) {
-		this.cantidadEspectadores = cantidadEspectadores;
-	}
+  public Integer getCantidadEspectadores() {
+    return cantidadEspectadores;
+  }
 
-	public Formacion ganador() {
-		if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
-			return local;
-		} else {
-			return visitante;
-		}
-	}
-	
-	public Long getId() {
-        return id;
+  public void setCantidadEspectadores(Integer cantidadEspectadores) {
+    this.cantidadEspectadores = cantidadEspectadores;
+  }
+
+  public Formacion ganador() {
+    if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
+      return local;
+    } else {
+      return visitante;
     }
+  }
+
+  public Long getId() {
+    return id;
+  }
 
 }
