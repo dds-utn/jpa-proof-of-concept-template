@@ -1,9 +1,8 @@
 package controller;
 
+import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import model.Consultora;
 import model.RepositorioConsultoras;
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -12,7 +11,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultorasController implements WithGlobalEntityManager, TransactionalOps {
+public class ConsultorasController implements WithSimplePersistenceUnit {
 
 
   public ModelAndView nueva(Request request, Response response) {
@@ -26,9 +25,7 @@ public class ConsultorasController implements WithGlobalEntityManager, Transacti
 
   public Void crear(Request request, Response response) {
     withTransaction(() -> {
-      Consultora consultora = new Consultora(
-              request.queryParams("nombre"),
-              Integer.parseInt(request.queryParams("cantidadEmpleados")));
+      Consultora consultora = new Consultora(request.queryParams("nombre"), Integer.parseInt(request.queryParams("cantidadEmpleados")));
       RepositorioConsultoras.instancia.agregar(consultora);
     });
     response.redirect("/");

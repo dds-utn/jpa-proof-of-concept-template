@@ -1,32 +1,29 @@
 package main;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-
 import controller.ConsultorasController;
-import model.Consultora;
-import model.RepositorioConsultoras;
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
+import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import spark.ModelAndView;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
-import javax.transaction.Transaction;
 
-public class Routes {
+public class Routes implements WithSimplePersistenceUnit {
 
   public static void main(String[] args) {
+    new Routes().start();
+  }
+
+  public void start() {
     System.out.println("Iniciando servidor");
-    
+
     Spark.port(8080);
     Spark.staticFileLocation("/public");
 
     HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
     ConsultorasController consultorasController = new ConsultorasController();
-    
+
+
     Spark.get("/", consultorasController::listar, engine);
 
     Spark.get("/blog", (request, response) -> {
@@ -42,10 +39,9 @@ public class Routes {
     });
 
     Spark.before((request, response) -> {
-      PerThreadEntityManagers.getEntityManager().clear();
+      entityManager().clear();
     });
   }
-
 
 
 }

@@ -1,14 +1,8 @@
 package model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "Consultoras")
@@ -22,7 +16,6 @@ public class Consultora {
 
   @Column(name = "cantidad_empleados")
   private int cantidadEmpleados;
-
 
 
   @OneToMany(mappedBy = "consultoraEncargada")

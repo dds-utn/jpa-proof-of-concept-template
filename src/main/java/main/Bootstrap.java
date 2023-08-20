@@ -1,17 +1,14 @@
 package main;
 
+import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import model.Consultora;
-
-import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
 
 /**
  * Ejecutar antes de levantar el servidor por primera vez
- * 
+ *
  * @author flbulgarelli
  */
-public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, TransactionalOps {
+public class Bootstrap implements WithSimplePersistenceUnit {
 
   public static void main(String[] args) {
     new Bootstrap().run();
