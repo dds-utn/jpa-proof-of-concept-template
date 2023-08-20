@@ -1,80 +1,74 @@
 package utn.dds.persistencia.futbol.persistence;
 
+import utn.dds.persistencia.futbol.persistence.difusion.Difusion;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OrderColumn;
-import javax.persistence.Transient;
-
-import utn.dds.persistencia.futbol.persistence.difusion.Difusion;
-
 @Entity
 public class Partido implements Competitivo {
-  
-    @Id @GeneratedValue
-    private Long id;
 
-	private Calendar fecha;
-	private Integer cantidadEspectadores;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-	@ManyToOne
-	private Formacion local;
-	@ManyToOne
-	private Formacion visitante;
-	
-	@ManyToMany
-	@OrderColumn(name = "posicion")
-	private List<Jugador> goleadores = new ArrayList<>();
-	
-	@Transient
-	private Difusion difusion;
+  private Calendar fecha;
+  private Integer cantidadEspectadores;
 
-	public Calendar getFecha() {
-		return fecha;
-	}
+  @ManyToOne
+  private Formacion local;
+  @ManyToOne
+  private Formacion visitante;
 
-	public void setFecha(Calendar fecha) {
-		this.fecha = fecha;
-	}
+  @ManyToMany
+  @OrderColumn(name = "posicion")
+  private List<Jugador> goleadores = new ArrayList<>();
 
-	public Integer getCantidadEspectadores() {
-		return cantidadEspectadores;
-	}
+  @Transient
+  private Difusion difusion;
 
-	public void setCantidadEspectadores(Integer cantidadEspectadores) {
-		this.cantidadEspectadores = cantidadEspectadores;
-	}
-	
-	public void registrarGol(Jugador jugador, Formacion formacion) {
-	  formacion.setGoles(formacion.getGoles() + 1);
-	  goleadores.add(jugador);
-	}
+  public Calendar getFecha() {
+    return fecha;
+  }
 
-	public Formacion ganador() {
-		if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
-			return local;
-		} else {
-			return visitante;
-		}
-	}
-	
-	public List<Jugador> getGoleadores() {
-      return goleadores;
+  public void setFecha(Calendar fecha) {
+    this.fecha = fecha;
+  }
+
+  public Integer getCantidadEspectadores() {
+    return cantidadEspectadores;
+  }
+
+  public void setCantidadEspectadores(Integer cantidadEspectadores) {
+    this.cantidadEspectadores = cantidadEspectadores;
+  }
+
+  public void registrarGol(Jugador jugador, Formacion formacion) {
+    formacion.setGoles(formacion.getGoles() + 1);
+    goleadores.add(jugador);
+  }
+
+  public Formacion ganador() {
+    if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
+      return local;
+    } else {
+      return visitante;
     }
-	
-	public Long getId() {
-        return id;
-    }
-	
-	@Override
-    public boolean esDeAltoRendimiento() {
-        return cantidadEspectadores > 100000;
-    }
+  }
+
+  public List<Jugador> getGoleadores() {
+    return goleadores;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  @Override
+  public boolean esDeAltoRendimiento() {
+    return cantidadEspectadores > 100000;
+  }
 
 }

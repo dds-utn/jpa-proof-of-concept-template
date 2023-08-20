@@ -7,13 +7,13 @@ public class SinDifusion implements Difusion {
   @Override
   public void iniciarDifusion(Partido partido) {
     // TODO Auto-generated method stub
-    
+
   }
 
   @Override
   public void finalizarDifusion(Partido partido) {
     // TODO Auto-generated method stub
-    
+
   }
 
 }

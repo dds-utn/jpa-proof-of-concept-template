@@ -1,7 +1,7 @@
 package utn.dds.persistencia.futbol.persistence.tienda;
 
 public class Remera extends Producto {
-  
+
   private Talle talle;
   private Color color;
   private GeneroRemera genero;
@@ -30,6 +30,5 @@ public class Remera extends Producto {
     this.genero = genero;
   }
 
-  
 
 }
