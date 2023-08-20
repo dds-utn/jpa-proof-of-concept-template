@@ -1,11 +1,11 @@
 package model;
 
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
+import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioUsuarios implements WithGlobalEntityManager {
+public class RepositorioUsuarios implements WithSimplePersistenceUnit {
 
   public static RepositorioUsuarios instancia = new RepositorioUsuarios();
 

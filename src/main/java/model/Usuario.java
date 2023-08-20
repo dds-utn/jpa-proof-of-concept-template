@@ -18,7 +18,7 @@ public class Usuario {
 
   @OneToMany
   @JoinColumn(name = "administrador")
-  private Collection<Consultora> consultorasAdministradas = new ArrayList<>() ;
+  private Collection<Consultora> consultorasAdministradas = new ArrayList<>();
 
   public Usuario(String username, String password) {
     this.username = username;

@@ -2,12 +2,12 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
-             version="1.0">
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
 
-  <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    
+  <persistence-unit name="simple-persistence-unit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
     <class>model.Consultora</class>
     <class>model.Proyecto</class>
     <class>model.Usuario</class>
@@ -16,7 +16,7 @@
       <property name="hibernate.archive.autodetection" value="class"/>
 
       <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
-      <property name="hibernate.connection.url" value="jdbc:hsqldb:file:app-db"/>
+      <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>
       <property name="hibernate.connection.username" value="sa"/>
       <property name="hibernate.connection.password" value=""/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
