@@ -1,5 +1,6 @@
 package utn.dds.persistencia.futbol.persistence;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -14,57 +15,58 @@ import javax.persistence.Transient;
 
 @Entity
 public class Partido {
-  
-    @Id @GeneratedValue
-    private Long id;
 
-	private Calendar fecha;
-	private Integer cantidadEspectadores;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-	@ManyToOne
-	private Formacion local;
-	@ManyToOne
-	private Formacion visitante;
-	
-	@ManyToMany
-	@OrderColumn(name = "posicion")
-	private List<Jugador> goleadores = new ArrayList<>();
+  private LocalDate fecha;
+  private Integer cantidadEspectadores;
 
-	public Calendar getFecha() {
-		return fecha;
-	}
+  @ManyToOne
+  private Formacion local;
+  @ManyToOne
+  private Formacion visitante;
 
-	public void setFecha(Calendar fecha) {
-		this.fecha = fecha;
-	}
+  @ManyToMany
+  @OrderColumn(name = "posicion")
+  private List<Jugador> goleadores = new ArrayList<>();
 
-	public Integer getCantidadEspectadores() {
-		return cantidadEspectadores;
-	}
+  public LocalDate getFecha() {
+    return fecha;
+  }
 
-	public void setCantidadEspectadores(Integer cantidadEspectadores) {
-		this.cantidadEspectadores = cantidadEspectadores;
-	}
-	
-	public void registrarGol(Jugador jugador, Formacion formacion) {
-	  formacion.setGoles(formacion.getGoles() + 1);
-	  goleadores.add(jugador);
-	}
+  public void setFecha(LocalDate fecha) {
+    this.fecha = fecha;
+  }
 
-	public Formacion ganador() {
-		if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
-			return local;
-		} else {
-			return visitante;
-		}
-	}
-	
-	public List<Jugador> getGoleadores() {
-      return goleadores;
+  public Integer getCantidadEspectadores() {
+    return cantidadEspectadores;
+  }
+
+  public void setCantidadEspectadores(Integer cantidadEspectadores) {
+    this.cantidadEspectadores = cantidadEspectadores;
+  }
+
+  public void registrarGol(Jugador jugador, Formacion formacion) {
+    formacion.setGoles(formacion.getGoles() + 1);
+    goleadores.add(jugador);
+  }
+
+  public Formacion ganador() {
+    if (local.getGoles().compareTo(visitante.getGoles()) > 0) {
+      return local;
+    } else {
+      return visitante;
     }
-	
-	public Long getId() {
-        return id;
-    }
+  }
+
+  public List<Jugador> getGoleadores() {
+    return goleadores;
+  }
+
+  public Long getId() {
+    return id;
+  }
 
 }
