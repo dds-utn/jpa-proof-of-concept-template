@@ -1,10 +1,10 @@
 package model;
 
+import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
+
 import java.util.List;
 
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-
-public class RepositorioConsultoras implements WithGlobalEntityManager {
+public class RepositorioConsultoras implements WithSimplePersistenceUnit {
 
   public static RepositorioConsultoras instancia = new RepositorioConsultoras();
 
@@ -16,8 +16,8 @@ public class RepositorioConsultoras implements WithGlobalEntityManager {
 
   public List<Consultora> listarSegunEmpleados() {
     return entityManager()//
-            .createQuery("from Consultora order by cantidad_empleados desc", Consultora.class) //
-            .getResultList();
+        .createQuery("from Consultora order by cantidad_empleados desc", Consultora.class) //
+        .getResultList();
   }
 
   public Consultora buscar(long id) {
