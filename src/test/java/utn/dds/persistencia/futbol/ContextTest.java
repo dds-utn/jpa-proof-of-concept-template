@@ -32,21 +32,26 @@ public class ContextTest implements SimplePersistenceTest {
 
     entityManager().persist(caro);
 
-    assertNotNull(dani.getId()); 
+    assertNotNull(dani.getId());
     assertNotEquals(dani.getId(), caro.getId());
-    
+
     Jugador dani2 = entityManager().find(Jugador.class, dani.getId());
 
     assertEquals(dani2.getId(), dani.getId()); // esto no debería resultar extraño
     assertSame(dani2, dani); // y esto tampoco, al fin y al cabo estamos recuperando un objeto que ya tenemos, ¿no?
-   
-    // ¿Perro qué pasa si limpio en el medio el entity manager? 
-    entityManager().clear(); 
+
+    // ¿Pero qué pasa si limpio en el medio el entity manager?
+    entityManager().flush();
+    entityManager().clear();
 
     Jugador dani3 = entityManager().find(Jugador.class, dani.getId());
 
     assertEquals(dani3.getId(), dani.getId()); // bien
-    assertNotSame(dani3, dani); 
-  
+    assertNotSame(dani3, dani);
+
+    // ¿Y si hacemos una actualización?
+    dani3.setPosicion("9");
+
+    entityManager().flush();
   }
 }
