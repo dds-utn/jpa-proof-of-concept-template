@@ -3,41 +3,38 @@ package utn.dds.persistencia.futbol.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OrderColumn;
+import javax.persistence.*;
 
 @Entity
 public class Jugador {
-  
-    @Id @GeneratedValue
-    private Long id;
-	
-	private String nombre;
-	private String posicion;
 
-	public String getNombre() {
-		return nombre;
-	}
-	
-	private List<String> lesiones = new ArrayList<>();
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+  private String nombre;
+  private String posicion;
 
-	public String getPosicion() {
-		return posicion;
-	}
+  public String getNombre() {
+    return nombre;
+  }
 
-	public void setPosicion(String posicion) {
-		this.posicion = posicion;
-	}
-	
-	public Long getId() {
-        return id;
-    }
+  private List<String> lesiones = new ArrayList<>();
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public String getPosicion() {
+    return posicion;
+  }
+
+  public void setPosicion(String posicion) {
+    this.posicion = posicion;
+  }
+
+  public Long getId() {
+    return id;
+  }
 
 }
