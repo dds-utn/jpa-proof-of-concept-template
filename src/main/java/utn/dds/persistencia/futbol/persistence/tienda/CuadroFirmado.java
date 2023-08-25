@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class CuadroFirmado extends Producto {
-  
+
   private String firmante;
   private boolean conMarco;
 

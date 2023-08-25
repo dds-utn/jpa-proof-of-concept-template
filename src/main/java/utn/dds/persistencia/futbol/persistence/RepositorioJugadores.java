@@ -1,9 +1,9 @@
 package utn.dds.persistencia.futbol.persistence;
 
 
-import java.util.List;
-
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
+
+import java.util.List;
 
 public class RepositorioJugadores implements WithSimplePersistenceUnit {
 
