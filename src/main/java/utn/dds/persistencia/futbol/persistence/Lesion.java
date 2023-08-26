@@ -9,7 +9,6 @@ public class Lesion {
   private LocalDateTime fecha;
   private String descripción;
 
-
   public Lesion(LocalDateTime fecha, String descripción) {
     this.fecha = fecha;
     this.descripción = descripción;

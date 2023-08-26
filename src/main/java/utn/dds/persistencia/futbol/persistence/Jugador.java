@@ -19,6 +19,7 @@ public class Jugador {
     return nombre;
   }
 
+  @Transient
   private List<String> lesiones = new ArrayList<>();
 
   public void setNombre(String nombre) {

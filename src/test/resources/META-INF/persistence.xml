@@ -9,8 +9,6 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
     <class>utn.dds.persistencia.futbol.persistence.Jugador</class>
-
-    <class>utn.dds.persistencia.futbol.persistence.Jugador</class>
     <class>utn.dds.persistencia.futbol.persistence.Formacion</class>
     <class>utn.dds.persistencia.futbol.persistence.Equipo</class>
     <class>utn.dds.persistencia.futbol.persistence.Partido</class>

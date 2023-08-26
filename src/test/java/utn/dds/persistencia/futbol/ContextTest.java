@@ -40,7 +40,7 @@ public class ContextTest implements SimplePersistenceTest {
     assertEquals(dani2.getId(), dani.getId()); // esto no debería resultar extraño
     assertSame(dani2, dani); // y esto tampoco, al fin y al cabo estamos recuperando un objeto que ya tenemos, ¿no?
    
-    // ¿Perro qué pasa si limpio en el medio el entity manager? 
+    // ¿Pero qué pasa si limpio en el medio el entity manager?
     entityManager().clear(); 
 
     Jugador dani3 = entityManager().find(Jugador.class, dani.getId());

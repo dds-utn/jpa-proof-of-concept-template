@@ -6,18 +6,22 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "formaciones")
 public class Formacion {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(name="gl")
   private Long goles;
 
-  // muchos a uno
+  @ManyToOne
+  @JoinColumn(name = "equipo_id") // redundante
   private Equipo equipo;
 
-  // muchos a muchos
+  @ManyToMany
+  @JoinTable(name = "jugador_x_formacion")
   private List<Jugador> jugadores = new ArrayList<Jugador>();
 
   public Equipo getEquipo() {

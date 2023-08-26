@@ -4,9 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Partido {
@@ -18,9 +16,13 @@ public class Partido {
   private LocalDate fecha;
   private Integer cantidadEspectadores;
 
+  @ManyToOne
   private Formacion local;
+
+  @ManyToOne
   private Formacion visitante;
 
+  @Transient
   private List<Jugador> goleadores = new ArrayList<>();
 
   public LocalDate getFecha() {

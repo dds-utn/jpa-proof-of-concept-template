@@ -1,9 +1,6 @@
 package utn.dds.persistencia.futbol.persistence;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Equipo {
@@ -15,6 +12,7 @@ public class Equipo {
   private String nombre;
   private Long cantidadAfiliados;
 
+  @Transient
   private Liga liga;
 
   public String getNombre() {
