@@ -17,7 +17,7 @@ public class Vehiculo {
 
 	private int velocidadMaxima;
 
-	@Embedded
+	@Transient
 	private Posicion posicion;
 
 	public String getPatente() {

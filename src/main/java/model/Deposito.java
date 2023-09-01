@@ -22,7 +22,7 @@ public class Deposito {
 
 	private boolean abiertoALaNoche;
 
-	@Embedded
+	@Transient
 	private Posicion posicion;
 
 	@Transient

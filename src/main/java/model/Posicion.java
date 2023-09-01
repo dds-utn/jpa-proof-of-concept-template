@@ -3,7 +3,6 @@ package model;
 import javax.persistence.Embeddable;
 
 
-@Embeddable
 public class Posicion {
 
 	private int latitud;
