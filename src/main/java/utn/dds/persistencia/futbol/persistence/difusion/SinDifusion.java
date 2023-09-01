@@ -2,7 +2,10 @@ package utn.dds.persistencia.futbol.persistence.difusion;
 
 import utn.dds.persistencia.futbol.persistence.Partido;
 
-public class SinDifusion implements Difusion {
+import javax.persistence.Entity;
+
+@Entity
+public class SinDifusion extends Difusion {
 
   @Override
   public void iniciarDifusion(Partido partido) {

@@ -1,6 +1,14 @@
 package utn.dds.persistencia.futbol.persistence.tienda;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Producto {
+
+  @Id
+  @GeneratedValue
+  private Long id;
 
   private Double precio;
   private String descripcion;

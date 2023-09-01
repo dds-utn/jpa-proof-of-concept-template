@@ -1,5 +1,9 @@
 package utn.dds.persistencia.futbol.persistence.tienda;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
 public class Remera extends Producto {
 
   private Talle talle;

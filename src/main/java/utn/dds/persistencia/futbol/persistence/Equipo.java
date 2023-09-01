@@ -1,9 +1,12 @@
 package utn.dds.persistencia.futbol.persistence;
 
 import utn.dds.persistencia.futbol.persistence.auditoria.Auditable;
+import utn.dds.persistencia.futbol.persistence.tienda.KitDeMate;
 import utn.dds.persistencia.futbol.persistence.tienda.Producto;
+import utn.dds.persistencia.futbol.persistence.tienda.Remera;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,11 +21,11 @@ public class Equipo implements Auditable, Competitivo {
   private Long cantidadAfiliados;
 
   @Enumerated(EnumType.ORDINAL)
-  @Column(name = "codigo_liga")
   private Liga liga;
 
-  @Transient
-  private List<Producto> productosEnTienda;
+  @OneToMany
+  @JoinColumn(name = "equipo_id")
+  private List<Producto> productosEnTienda = new ArrayList<>();
 
   private Date ultimaModificacion;
 
@@ -32,6 +35,10 @@ public class Equipo implements Auditable, Competitivo {
 
   public void setNombre(String nombre) {
     this.nombre = nombre;
+  }
+
+  public void agregarProducto(Producto producto) {
+    this.productosEnTienda.add(producto);
   }
 
   public Long getCantidadAfiliados() {
