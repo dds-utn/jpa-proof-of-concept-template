@@ -1,10 +1,31 @@
 package model;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
+
+
+// si agrego posiciones
+
+// posiciones
+// id | vehiculo_id | lat | long
+// 1  | 1            |   0  | 0
+// 2  | 2            |   0  | 0
+// 3  | 1            |   0  | 0.1
+
+// si actualizo posiciones
+
+// posiciones
+// id | vehiculo_id | lat | long
+// 1  | 1            |   0  | 0.1
+// 2  | 2            |   0  | 0
+
+
+// en realidad convendria que el vehiculo tenga esa información!
+
+
+// vehiculo
+// id | ... | lat | long
+// 1  | ... |   0  | 0.1
+// 2  | ... |   0  | 0
 
 @Entity
 public class Vehiculo {
@@ -17,7 +38,7 @@ public class Vehiculo {
 
 	private int velocidadMaxima;
 
-	@Transient
+	@Embedded
 	private Posicion posicion;
 
 	public String getPatente() {

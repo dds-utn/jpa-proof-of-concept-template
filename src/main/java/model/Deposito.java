@@ -13,8 +13,8 @@ public class Deposito {
 	@GeneratedValue
 	private int id;
 
-	@Transient
-	private List<Date> fechasDeInspeccion;
+	@ElementCollection
+	private List<LocalDate> fechasDeInspeccion;
 
 	private int capacidadM3;
 
@@ -22,10 +22,10 @@ public class Deposito {
 
 	private boolean abiertoALaNoche;
 
-	@Transient
+	@Embedded
 	private Posicion posicion;
 
-	@Transient
+	@ElementCollection
 	private Collection<Posicion> entradas;
 
 	public int getId() {

@@ -1,8 +1,8 @@
 package model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
-
+@Embeddable
 public class Posicion {
 
 	private int latitud;
