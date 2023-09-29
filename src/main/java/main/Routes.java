@@ -22,12 +22,6 @@ public class Routes {
 
         Spark.get("/", (request, response) -> homeController.getHome(), engine);
 
-        Spark.get("/consultoras", consultorasController::getConsultoras, engine);
-
-        Spark.get("/consultoras/nueva", consultorasController::getFormularioCreacion,engine);
-        Spark.get("/consultoras/:id", (request, response) -> consultorasController.getDetalleConsultora(request, response, engine));
-        Spark.post("/consultoras", (request, response) -> consultorasController.crearConsultora(request, response));
-
         System.out.println("Servidor iniciado!");
 
     }

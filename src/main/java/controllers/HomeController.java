@@ -12,7 +12,8 @@ public class HomeController {
     public ModelAndView getHome() {
         Map<String, Object> modelo = new HashMap<>();
         modelo.put("anio", LocalDate.now().getYear());
-        modelo.put("consultoras", RepositorioConsultoras.instancia.listar().subList(0, 3));
+        modelo.put("consultoras", RepositorioConsultoras.instancia.listar();
+        modelo.put("saraza", "HOLA A TODOS");
 
         return new ModelAndView(modelo, "index.html.hbs");
     }
