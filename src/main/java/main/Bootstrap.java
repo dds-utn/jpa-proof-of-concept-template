@@ -1,6 +1,7 @@
 package main;
 
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
+import model.Usuario;
 
 /**
  * Ejecutar antes de levantar el servidor por primera vez
@@ -15,7 +16,8 @@ public class Bootstrap implements WithSimplePersistenceUnit {
 
   public void run() {
     withTransaction(() -> {
-
+      var usuario = new Usuario("franco", "flbulgarelli@gmail.com", "123456");
+      persist(usuario);
     });
   }
 

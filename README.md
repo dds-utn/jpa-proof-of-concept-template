@@ -12,4 +12,18 @@ Llegó el momento tan ansiado: ¡construir la interfaz de QMP! Basándonos en lo
 * **Bonus**: Como usuarie de QueMePongo quiero poder seleccionar una prenda desde el detalle del guardarropas y navegar hacia `/prendas/:id`, donde encontraré el detalle de la misma.
 * **Bonus**: Como usuarie de QueMePongo, quiero poder eliminar una prenda desde el detalle de la misma.
 
-En este repositorio encontrarás las clases `Guardarropa`, `Prenda`, `Usuario` y `Color`. Las mismas ya están anotadas y listas para ser usadas. 
+En este repositorio encontrarás las clases `Guardarropa`, `Prenda`, `Usuario` y `Color`. Las mismas ya están anotadas y listas para ser usadas.
+
+
+Estamos trabajando en aulas partidas en este ejercicio:
+
+https://github.com/dds-utn/jpa-proof-of-concept-template/tree/qmp-web
+
+Elijan un aula de su gusto (idealmente, mínimo de a dos personas) y comiencen a trabajar en el ejercicio
+Iremos pasando por las aulas durante la clase.
+Sugerencia:
+  - dejar el login para el final.
+  - concentrarse en, primero, la navegación, y segundo, en la UI y usabilidad
+
+Después de clase, no se olviden de ver el video de manejo de sesión y transacciones
+que está subido a la clase de hoy en el webcampus. 
