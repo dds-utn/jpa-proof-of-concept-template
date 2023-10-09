@@ -14,6 +14,7 @@ Llegó el momento tan ansiado: ¡construir la interfaz de QMP! Basándonos en lo
 
 En este repositorio encontrarás las clases `Guardarropa`, `Prenda`, `Usuario` y `Color`. Las mismas ya están anotadas y listas para ser usadas.
 
+## Nota de clase
 
 Estamos trabajando en aulas partidas en este ejercicio:
 
