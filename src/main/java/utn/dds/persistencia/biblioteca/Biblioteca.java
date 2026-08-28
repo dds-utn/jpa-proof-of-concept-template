@@ -1,11 +1,20 @@
 package utn.dds.persistencia.biblioteca;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Biblioteca {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
   private String nombre;
+
+  @OneToMany
+  @JoinColumn(name = "biblioteca_id")
   private List<Publicacion> publicaciones = new ArrayList<>();
 
   public String getNombre() {

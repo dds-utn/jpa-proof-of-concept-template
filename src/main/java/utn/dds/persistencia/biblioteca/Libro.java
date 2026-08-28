@@ -1,5 +1,8 @@
 package utn.dds.persistencia.biblioteca;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Libro extends Publicacion {
 
   private String isbn;

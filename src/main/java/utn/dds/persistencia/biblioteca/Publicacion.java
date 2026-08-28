@@ -1,11 +1,20 @@
 package utn.dds.persistencia.biblioteca;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Publicacion {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
   private String titulo;
   private LocalDate fechaPublicacion;
+
+  @ManyToOne
   private Autor autor;
 
   public String getTitulo() {
