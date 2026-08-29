@@ -12,6 +12,10 @@ public class Autor {
   private String nombre;
   private String apellido;
 
+  public Long getId() {
+    return id;
+  }
+
   public String getNombre() {
     return nombre;
   }

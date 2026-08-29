@@ -17,6 +17,10 @@ public class Biblioteca {
   @JoinColumn(name = "biblioteca_id")
   private List<Publicacion> publicaciones = new ArrayList<>();
 
+  public Long getId() {
+    return id;
+  }
+
   public String getNombre() {
     return nombre;
   }
